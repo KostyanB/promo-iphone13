@@ -1,0 +1,207 @@
+{
+  "description": {
+    "title": "Смартфон Apple iPhone 13 Pro 128GB Graphite",
+    "colors": ["Графитовый", "Серебристый", "Небесно-голубой"],
+    "description": {
+      "screen": "Экран 6.1&#8243;/2532x1170 Пикс",
+      "tech-screen": "Технология экрана OLED",
+      "processor": "Тип процессора A15 Bionic",
+      "memory": "Встроенная память (ROM) 128 ГБ",
+      "camera": "Основная камера МПикс 12/12/12/LiDAR"
+    },
+    "price": "99990 &#8381;"
+  },
+  "characteristics": {
+    "display": {
+      "title": "Дисплей",
+      "descriptions": [
+        ["Тип дисплея", "Super Retina XDR (OLED)"],
+        ["Диагональ (дюйм)", "6.1"],
+        ["Разрешение (пикс)", "2532x1170"],
+        ["Плотность пикселей (PPI)", "460"],
+        ["Количество цветов дисплея", "16 млн."],
+        ["Сенсорный дисплей ", "да"],
+        ["Тип сенсорного дисплея", "емкостный"],
+        ["Поддержка Multitouch", "да"],
+        ["Защита экрана", "Ceramic Shield"],
+        [
+          "Особенности дисплея",
+          "дисплей с расширенным цветовым охватом (P3), дисплей True Tone"
+        ],
+        ["Олеофобное покрытие", "да"]
+      ]
+    },
+    "camera": {
+      "title": "Фотокамера",
+      "descriptions": [
+        ["Фотокамера (Мп)", "12 + 12 + 12 + сканер LiDAR"],
+        ["Оптический зум", "x6"],
+        ["Стабилизация изображения", "оптическая"],
+        ["Автофокус", "гибридный"],
+        ["Вспышка", "True Tone"],
+        ["Видеозапись", "да"],
+        ["Разрешение видеосъемки (пикс)", "3840 x 2160"],
+        ["Частота кадров видеосъемки", "60"],
+        ["Стабилизация видео", "Да"],
+        ["Фронтальная камера (Мп)", "12"]
+      ]
+    },
+    "cell": {
+      "title": "Связь",
+      "descriptions": [
+        ["Диапазоны GSM", "850, 900, 1800, 1900"],
+        ["Диапазоны UMTS", "850, 900, 1700, 1900, 2100"],
+        ["Интернет", "GPRS, EDGE, 3G, 4G, 5G"],
+        ["Bluetooth", "5.0"],
+        ["Wi-Fi (802.11ax)", "b, g, n, ac, 2.4 ГГц, 5 ГГц"],
+        ["NFC", "да"],
+        ["Разъем для синхронизации", "Apple Lightning"],
+        ["Apple Pay", "да"]
+      ]
+    },
+    "processor": {
+      "title": "Процессор",
+      "descriptions": [
+        ["Процессор", "Apple A15 Bionic"],
+        ["64-битная архитектура", "да"]
+      ]
+    },
+    "memory": {
+      "title": "Память",
+      "descriptions": [
+        ["Встроенная память (Гб)", "128"],
+        ["Поддержка карт памяти", "нет"]
+      ]
+    },
+    "media": {
+      "title": "Мультимедиа",
+      "descriptions": [
+        ["Аудиоплеер", "да"],
+        ["Видеоплеер", "да"],
+        ["Аудиоразъем", "Apple Lightning"],
+        ["Стереодинамики", "Да"]
+      ]
+    },
+    "system": {
+      "title": "Система",
+      "descriptions": [
+        ["Операционная система", "iOS 15"],
+        [
+          "Навигация",
+          "GPS, ГЛОНАСС, A-GPS, GALILEO, функция точного определения местоположения iBeacon, QZSS"
+        ]
+      ]
+    },
+    "sim": {
+      "title": "SIM-карта",
+      "descriptions": [
+        ["SIM-карта", "nano-SIM"],
+        ["Кол-во SIM-карт", "1"]
+      ]
+    },
+    "power": {
+      "title": "Питание",
+      "descriptions": [
+        ["Тип аккумулятора", "Литий-ионный, несъемный"],
+        ["Разъем для зарядки", "Проприетарный Apple Lightning"],
+        ["Беспроводная зарядка", "Да"],
+        ["Поддержка технологии быстрой зарядки", "да"],
+        ["Воспроизведение музыки (ч)", "75"],
+        ["Воспроизведение видео (ч)", "22"]
+      ]
+    },
+    "body": {
+      "title": "Корпус",
+      "descriptions": [
+        ["Тип корпуса", "классический"],
+        ["Высота (мм)", "146.7"],
+        ["Ширина (мм)", "71.5"],
+        ["Толщина (мм)", "7.65"],
+        ["Вес (г)", "204"],
+        ["Материал корпуса", "нерж. сталь, стекло"],
+        ["Защита от влаги и пыли", "Да"],
+        ["Стандарт защиты", "IP68"]
+      ]
+    }
+  },
+  "cross-sell": [
+    {
+      "id": "10024343b",
+      "name": "Умная колонка с Алисой Яндекс.Станция черная",
+      "photo": "cross-sell-dbase/img/10024343b.jpg",
+      "price": "12990"
+    },
+    {
+      "id": "30052979b",
+      "name": "Смарт-часы Apple Watch S6 44mm Space Gray Aluminum Case with Black Sport Band",
+      "photo": "cross-sell-dbase/img/30052979b.jpg",
+      "price": "39490"
+    },
+    {
+      "id": "50047745b",
+      "name": "Наушники Apple EarPods with Lightning Connector",
+      "photo": "cross-sell-dbase/img/50047745b.jpg",
+      "price": "1990"
+    },
+    {
+      "id": "50051752b",
+      "name": "Флеш-диск для Apple Leef iBridge3 64 Гб, серебристый",
+      "photo": "cross-sell-dbase/img/50051752b.jpg",
+      "price": "7190"
+    },
+    {
+      "id": "50126638b",
+      "name": "Наушники Apple AirPods w/Charging Case",
+      "photo": "cross-sell-dbase/img/50126638b.jpg",
+      "price": "12990"
+    },
+    {
+      "id": "50131681b",
+      "name": "Кабель для iPod, iPhone, iPad Apple USB-C to Lightning Cable 1 m",
+      "photo": "cross-sell-dbase/img/50131681b.jpg",
+      "price": "1790"
+    },
+    {
+      "id": "50132022b",
+      "name": "Беспроводное зарядное устройство InterStep QI",
+      "photo": "cross-sell-dbase/img/50132022b.jpg",
+      "price": "1990"
+    },
+    {
+      "id": "50133735b",
+      "name": "Внешний аккумулятор TFN Pocket PD PB-216",
+      "photo": "cross-sell-dbase/img/50133735b.jpg",
+      "price": "1790"
+    },
+    {
+      "id": "50135795b",
+      "name": "Автомобильное зарядное устройство TFN Rapid+",
+      "photo": "cross-sell-dbase/img/50135795b.jpg",
+      "price": "990"
+    },
+    {
+      "id": "50143532b",
+      "name": "Защитное стекло InterStep iPhone 12/12 Pro",
+      "photo": "cross-sell-dbase/img/50143532b.jpg",
+      "price": "990"
+    },
+    {
+      "id": "50144492b",
+      "name": "Сетевое зарядное устройство Anker PowerPort 3 Nano 20W USB-C White",
+      "photo": "cross-sell-dbase/img/50144492b.jpg",
+      "price": "1590"
+    },
+    {
+      "id": "50144562b",
+      "name": "Чехол Apple iPhone 12 / 12 Pro Silicone MagSafe Black",
+      "photo": "cross-sell-dbase/img/50144562b.jpg",
+      "price": "4990"
+    },
+    {
+      "id": "50144578b",
+      "name": "БЗУ Apple MagSafe Charger",
+      "photo": "cross-sell-dbase/img/50144578b.jpg",
+      "price": "3990"
+    }
+  ]
+}
