@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import env from '../../env.json';
 
-const loaderColor = env.colors.loader;
+const loaderColor = env.colors.hoverColor;
 
 // loader expect props size us num
 const circleStyle = `4px solid ${loaderColor}`;

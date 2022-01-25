@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { NavContext } from '../Context';
+import env from '../../env.json';
+
+const { hoverColor } = env.colors;
 
 const Item = styled.li`
   white-space: nowrap;
 
-  & > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: block;
+  & > a:hover,
+  & > a:active {
+    color: ${hoverColor};
   }
 `;
+//
+const NavItem = ({ href, name }) => {
+  const {
+    falloutNav: { closeNav },
+  } = useContext(NavContext);
 
-const NavItem = ({ href, name }) => (
-  <Item>
-    <a href={href}>{name}</a>
-  </Item>
-);
+  const handleNavItem = e => {
+    // console.log(e.target);
+    closeNav();
+  };
+
+  return (
+    <Item>
+      <a href={href} onClick={handleNavItem}>
+        {name}
+      </a>
+    </Item>
+  );
+};
 export default NavItem;
