@@ -20,7 +20,8 @@ export const goodSlice = createSlice({
     goodDb: {},
     status: null,
     error: null,
-    description: {},
+    present: {},
+    card: {},
     characteristics: {},
     crossSell: [],
   },
@@ -33,7 +34,8 @@ export const goodSlice = createSlice({
       const data = action.payload;
       state.status = 'success';
       state.goodDb = data;
-      state.description = data.description;
+      state.present = data.present;
+      state.card = data.card;
       state.characteristics = data.characteristics;
 
       state.crossSell = data['cross-sell'].reduce((acc, item) => {
@@ -49,7 +51,8 @@ export const goodSlice = createSlice({
 });
 
 export const selectGoodDb = state => state.goodDb.goodDb;
-export const selectDescription = state => state.goodDb.description;
+export const selectPresent = state => state.goodDb.present;
+export const selectCard = state => state.goodDb.card;
 export const selectCharacteristics = state => state.goodDb.characteristics;
 export const selectCcrossSell = state => state.goodDb.ccrossSell;
 

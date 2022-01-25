@@ -9,6 +9,8 @@ import Preloader from './components/Styled/Preloader';
 import { getGoodDb, selectError, selectStatus } from './store/goodSlice';
 
 const Header = lazy(() => import('./components/Header'));
+const Present = lazy(() => import('./components/Present'));
+const Card = lazy(() => import('./components/Card'));
 
 function App() {
   const dispatch = useDispatch(),
@@ -37,6 +39,10 @@ function App() {
       <GlobalStyle />
       <Suspense fallback={<Preloader />}>
         <Header />
+        <main>
+          <Present />
+          <Card />
+        </main>
       </Suspense>
       {error && <ErrorLoad />}
     </>
