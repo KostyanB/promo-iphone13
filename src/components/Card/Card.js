@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-
+import useCurrentModel from '../../hooks/useCurrentModel';
+import { CardContext } from '../Context';
 import { selectCard } from '../../store/goodSlice';
+import env from '../../env.json';
 
 import Container from '../Styled/Container';
+import Title from './Title';
+import ProductImg from './ProductImg';
 import ModelBtns from './ModelBtns';
 import DetailList from './DetailList';
+import Footer from './Footer';
 
-const As = styled.div`
-  @media (max-width: 968px) {
-  }
-  @media (max-width: 698px) {
-  }
-  @media (max-width: 520px) {
-  }
-`;
+const { hoverColor, activeColor } = env.colors;
+
 const Section = styled.section`
   padding-top: 90px;
 
@@ -50,15 +49,6 @@ const Details = styled.div`
   @media (max-width: 520px) {
   }
 `;
-const Title = styled.h2`
-  font-size: 36px;
-  line-height: 43px;
-  text-align: center;
-  @media (max-width: 698px) {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-`;
 const Description = styled.div`
   font-weight: 300;
   font-size: 18px;
@@ -69,74 +59,46 @@ const Description = styled.div`
     flex-direction: column;
   }
 `;
+const Link = styled.a`
+  display: block;
+  width: max-content;
+  margin-bottom: 60px;
+  color: ${hoverColor};
+  font-size: 18px;
+  line-height: 21px;
+
+  &:hover,
+  &:active {
+    color: ${activeColor};
+  }
+`;
 
 const Card = () => {
-  const cardDb = useSelector(selectCard);
-  const { colors, price, models, title } = cardDb;
-
-  const [currentModel, setCurrentModel] = useState('');
+  const models = useSelector(selectCard).models;
+  const currentModel = useCurrentModel();
 
   useEffect(() => {
-    setCurrentModel(models.graphite.color);
-  }, [models]);
+    const startModel = Object.entries(models)[0][1];
+    currentModel.setCurrentModel(startModel);
+  }, []);
 
   return (
-    <Section id="Card">
-      <Wrapper>
-        <figure className="card__image">
-          <img
-            className="card__image_item"
-            src="img/iPhone-graphite.webp"
-            alt="iPhone12"
-          />
-        </figure>
-        <Details>
-          <Title>
-            {title}
-            {currentModel}
-          </Title>
-          <ModelBtns />
-          {/* <ul className="card-detail__buttons">
-            <li className="card-details__wrap-btn">
-              <button className="card-detail__change active" type="button">
-                Графитовый
-              </button>
-            </li>
-            <li className="card-details__wrap-btn">
-              <button className="card-detail__change" type="button">
-                Серебристый
-              </button>
-            </li>
-            <li className="card-details__wrap-btn">
-              <button className="card-detail__change" type="button">
-                Небесно-голубой
-              </button>
-            </li>
-          </ul> */}
-          <Description className="card-details__description">
-            <DetailList />
-            <a
-              className="card-details__link-characteristics"
-              href="#characteristics">
-              Полные харакстеристики
-            </a>
-            <div className="card-details__footer">
-              <p className="card-details__price">99990₽</p>
-              <button
-                className="button button_buy card-details__button_buy"
-                data-button-buy="Оплата">
-                Купить
-              </button>
-              <button
-                className="button card-details__button_delivery"
-                data-button-buy="Доставка и оплата">
-                Купить с доставкой
-              </button>
-            </div>
-          </Description>
-        </Details>
-      </Wrapper>
-    </Section>
+    <CardContext.Provider value={{ currentModel }}>
+      <Section id="card">
+        <Wrapper>
+          <ProductImg />
+          <Details>
+            <Title />
+            <ModelBtns />
+            <Description>
+              <DetailList />
+              <Link href="#characteristics">Полные харакстеристики</Link>
+              <Footer />
+            </Description>
+          </Details>
+        </Wrapper>
+      </Section>
+    </CardContext.Provider>
   );
 };
 export default Card;

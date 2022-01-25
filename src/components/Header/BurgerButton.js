@@ -7,9 +7,7 @@ import env from '../../env.json';
 
 import { MenuIcon } from '../Styled/Icons/Icons';
 
-const {
-  colors: { hoverColor, mainColor },
-} = env;
+const { hoverColor, mainColor } = env.colors;
 
 const Burger = styled.button`
   display: flex;

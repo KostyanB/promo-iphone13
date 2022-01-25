@@ -39,10 +39,7 @@ const List = styled.ul`
   gap: 5px;
   flex-grow: 1;
   padding: 20px;
-  /* transition: transform ${transitionDuration}; */
   visibility: ${props => (props.isVisibleNav ? 'visible' : 'hidden')};
-  /* transform: ${props =>
-    props.isOpenNav ? 'translateY(0)' : 'translateY(-200%)'}; */
 
   @media (max-width: 768px) {
     position: absolute;

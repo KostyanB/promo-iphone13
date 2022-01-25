@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import env from '../../env.json';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { selectPresent } from '../../store/goodSlice';
 

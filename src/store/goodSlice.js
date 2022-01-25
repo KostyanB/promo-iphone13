@@ -54,7 +54,7 @@ export const selectGoodDb = state => state.goodDb.goodDb;
 export const selectPresent = state => state.goodDb.present;
 export const selectCard = state => state.goodDb.card;
 export const selectCharacteristics = state => state.goodDb.characteristics;
-export const selectCcrossSell = state => state.goodDb.ccrossSell;
+export const selectCrossSell = state => state.goodDb.crossSell;
 
 export const selectError = state => state.goodDb.error;
 export const selectStatus = state => state.goodDb.status;

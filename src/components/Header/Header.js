@@ -10,6 +10,7 @@ import { LogoIcon } from '../Styled/Icons/Icons';
 
 const {
   colors: { hoverColor, mainColor },
+  transitionDuration,
 } = env;
 
 const Wrapper = styled(Container)`

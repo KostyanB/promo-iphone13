@@ -16,30 +16,22 @@
       "sierraBlue": {
         "imgSrc": "../../db/present/iPhone-sierra_blue.webp",
         "color": "Sierra Blue",
-        "name": "Серебристый"
+        "name": "Небесно-голубой"
       },
       "silver": {
         "imgSrc": "../../db/present/iPhone-silver.webp",
         "color": "Silver",
-        "name": "Небесно-голубой"
+        "name": "Серебристый"
       }
     },
     "details": {
-      "screen": "Экран 6.1&#8243;/2532x1170 Пикс",
+      "screen": "Экран 6.1''/2532x1170 Пикс",
       "tech-screen": "Технология экрана OLED",
       "processor": "Тип процессора A15 Bionic",
       "memory": "Встроенная память (ROM) 128 ГБ",
       "camera": "Основная камера МПикс 12/12/12/LiDAR"
     },
-    "details1": [
-      "Экран 6.1&#8243;/2532x1170 Пикс",
-      "Технология экрана OLED",
-      "Тип процессора A15 Bionic",
-      "Встроенная память (ROM) 128 ГБ",
-      "Основная камера МПикс 12/12/12/LiDAR"
-    ],
-    "colors": ["Графитовый", "Серебристый", "Небесно-голубой"],
-    "price": "99990 &#8381;"
+    "price": "99990"
   },
   "characteristics": {
     "display": {

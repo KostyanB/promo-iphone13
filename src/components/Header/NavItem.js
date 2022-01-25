@@ -20,7 +20,6 @@ const NavItem = ({ href, name }) => {
   } = useContext(NavContext);
 
   const handleNavItem = e => {
-    // console.log(e.target);
     closeNav();
   };
 

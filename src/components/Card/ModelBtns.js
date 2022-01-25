@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-
+import { CardContext } from '../Context';
 import { selectCard } from '../../store/goodSlice';
+import env from '../../env.json';
 
-const As = styled.div`
-  @media (max-width: 968px) {
-  }
-  @media (max-width: 698px) {
-  }
-  @media (max-width: 520px) {
-  }
-`;
+const { activeColor, mainColor } = env.colors;
+
 const Buttons = styled.ul`
   display: flex;
   gap: 24px;
@@ -27,19 +22,35 @@ const Buttons = styled.ul`
   }
 `;
 const Button = styled.button`
-  border: 1px solid transparent;
   background-color: transparent;
   padding: 11px 16px;
+  color: ${props => (props.isActive ? activeColor : mainColor)};
+  border-bottom: 1px solid;
+  border-bottom-color: ${props =>
+    props.isActive ? activeColor : 'rgba(255,255,255,0)'};
 `;
 
 const ModelBtns = () => {
-  const cardDb = useSelector(selectCard);
+  const models = useSelector(selectCard).models;
+
+  const {
+    currentModel: { currentColor, setCurrentModel },
+  } = useContext(CardContext);
+
+  const handleCurrentModel = model => setCurrentModel(models[model]);
+
+  const checkActive = model => model.color === currentColor;
 
   return (
     <Buttons>
-      {Object.entries(cardDb.models).map((model, i) => (
-        <li key={i}>
-          <Button className="active">{model[1].name}</Button>
+      {Object.entries(models).map(([id, data], index) => (
+        <li key={index}>
+          <Button
+            isActive={checkActive(data)}
+            className="active"
+            onClick={() => handleCurrentModel(id)}>
+            {data.name}
+          </Button>
         </li>
       ))}
     </Buttons>

@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import env from '../../env.json';
 
+const { transitionDuration } = env;
+
 export const GlobalStyle = createGlobalStyle`
     /* fonts */
     @font-face {
@@ -332,5 +334,13 @@ export const GlobalStyle = createGlobalStyle`
         overflow: hidden;
     }
 
-
+    button,
+    a {
+        transition: color ${transitionDuration},
+            background-color ${transitionDuration},
+            border-color ${transitionDuration};
+    }
+    svg {
+        transition: color ${transitionDuration};
+    }
 `;
