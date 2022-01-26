@@ -1,6 +1,9 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { CurrentModelContext } from './components/Context';
+import useCurrentModel from './hooks/useCurrentModel';
+
 import { getGoodDb, selectError, selectStatus } from './store/goodSlice';
 
 import { GlobalStyle } from './components/Styled/GlobalStyle';
@@ -17,6 +20,8 @@ function App() {
     error = useSelector(selectError),
     status = useSelector(selectStatus);
 
+  const currentModel = useCurrentModel();
+
   useEffect(() => {
     dispatch(getGoodDb());
   }, [dispatch]);
@@ -28,8 +33,10 @@ function App() {
       <Suspense fallback={<Preloader />}>
         {status === 'success' && (
           <main>
-            <Present />
-            <Card />
+            <CurrentModelContext.Provider value={{ currentModel }}>
+              <Present />
+              <Card />
+            </CurrentModelContext.Provider>
           </main>
         )}
       </Suspense>

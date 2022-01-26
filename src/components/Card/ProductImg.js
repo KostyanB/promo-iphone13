@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectPresent } from '../../store/goodSlice';
-import { CardContext } from '../Context';
+import { CurrentModelContext } from '../Context';
 
 const CardImg = styled.figure`
   max-width: 300px;
@@ -22,7 +22,7 @@ const CardImg = styled.figure`
 const ProductImg = () => {
   const {
     currentModel: { currentImg },
-  } = useContext(CardContext);
+  } = useContext(CurrentModelContext);
 
   const altText = useSelector(selectPresent).imgAlt;
 

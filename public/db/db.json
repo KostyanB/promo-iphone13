@@ -6,32 +6,37 @@
     "imgAlt": "iPhone13"
   },
   "card": {
-    "title": "Смартфон Apple iPhone 13 Pro 128GB ",
+    "title": "Смартфон Apple iPhone 13 Pro ",
     "models": {
       "graphite": {
         "imgSrc": "../../db/present/iPhone-graphite.webp",
         "color": "Graphite",
-        "name": "Графитовый"
-      },
-      "sierraBlue": {
-        "imgSrc": "../../db/present/iPhone-sierra_blue.webp",
-        "color": "Sierra Blue",
-        "name": "Небесно-голубой"
+        "memory": "128",
+        "name": "Графитовый",
+        "price": "60000"
       },
       "silver": {
         "imgSrc": "../../db/present/iPhone-silver.webp",
         "color": "Silver",
-        "name": "Серебристый"
+        "memory": "256",
+        "name": "Серебристый",
+        "price": "65000"
+      },
+      "sierraBlue": {
+        "imgSrc": "../../db/present/iPhone-sierra_blue.webp",
+        "color": "Sierra Blue",
+        "memory": "512",
+        "name": "Небесно-голубой",
+        "price": "75000"
       }
     },
     "details": {
-      "screen": "Экран 6.1''/2532x1170 Пикс",
-      "tech-screen": "Технология экрана OLED",
-      "processor": "Тип процессора A15 Bionic",
-      "memory": "Встроенная память (ROM) 128 ГБ",
-      "camera": "Основная камера МПикс 12/12/12/LiDAR"
-    },
-    "price": "99990"
+      "screen": "Экран: 6.1''/2532x1170 Пикс",
+      "tech-screen": "Технология экрана: OLED",
+      "processor": "Тип процессора: A15 Bionic",
+      "memory": "Встроенная память (ROM): ",
+      "camera": "Основная камера (МПикс): 12/12/12/LiDAR"
+    }
   },
   "characteristics": {
     "display": {

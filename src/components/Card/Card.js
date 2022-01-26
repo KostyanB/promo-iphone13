@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import useCurrentModel from '../../hooks/useCurrentModel';
-import { CardContext } from '../Context';
+// import useCurrentModel from '../../hooks/useCurrentModel';
+// import { CardContext } from '../Context';
+import { CurrentModelContext } from '../Context';
 import { selectCard } from '../../store/goodSlice';
 import env from '../../env.json';
 
@@ -75,28 +76,31 @@ const Link = styled.a`
 
 const Card = () => {
   const models = useSelector(selectCard).models;
-  const currentModel = useCurrentModel();
+  // const currentModel = useCurrentModel();
+  const {
+    currentModel: { setCurrentModel },
+  } = useContext(CurrentModelContext);
 
   useEffect(() => {
     const startModel = Object.entries(models)[0][1];
-    currentModel.setCurrentModel(startModel);
+    setCurrentModel(startModel);
   }, []);
 
   return (
     <Section id="card">
       <Wrapper>
-        <CardContext.Provider value={{ currentModel }}>
-          <ProductImg />
-          <Details>
-            <Title />
-            <ModelBtns />
-            <Description>
-              <DetailList />
-              <Link href="#characteristics">Полные харакстеристики</Link>
-              <Footer />
-            </Description>
-          </Details>
-        </CardContext.Provider>
+        {/* <CardContext.Provider value={{ currentModel }}> */}
+        <ProductImg />
+        <Details>
+          <Title />
+          <ModelBtns />
+          <Description>
+            <DetailList />
+            <Link href="#characteristics">Полные харакстеристики</Link>
+            <Footer />
+          </Description>
+        </Details>
+        {/* </CardContext.Provider> */}
       </Wrapper>
     </Section>
   );

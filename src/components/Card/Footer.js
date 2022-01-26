@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-
+import { CurrentModelContext } from '../Context';
 import { selectCard } from '../../store/goodSlice';
 import env from '../../env.json';
 
@@ -52,10 +52,13 @@ const ButtonBuy = styled(Button)`
 
 const Footer = () => {
   const price = useSelector(selectCard).price;
+  const {
+    currentModel: { currentPrice },
+  } = useContext(CurrentModelContext);
 
   return (
     <Wrapper>
-      <Price>{price}&#8381;</Price>
+      <Price>{currentPrice}&#8381;</Price>
       <ButtonBuy data-button-buy="Оплата">Купить</ButtonBuy>
       <Button data-button-buy="Доставка и оплата">Купить с доставкой</Button>
     </Wrapper>

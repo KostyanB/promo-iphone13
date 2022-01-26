@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { CardContext } from '../Context';
+import { CurrentModelContext } from '../Context';
 import { useSelector } from 'react-redux';
 import { selectCard } from '../../store/goodSlice';
 
@@ -18,13 +18,15 @@ const Title = () => {
   const title = useSelector(selectCard).title;
 
   const {
-    currentModel: { currentColor },
-  } = useContext(CardContext);
+    currentModel: { currentColor, currentMemory },
+  } = useContext(CurrentModelContext);
 
   return (
     <H2>
-      {title}
-      <span>{currentColor}</span>
+      {title} <br />
+      <span>
+        {currentMemory}Gb {currentColor}
+      </span>
     </H2>
   );
 };

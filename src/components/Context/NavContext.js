@@ -15,3 +15,5 @@ export const NavContextProvider = props => {
     </NavContext.Provider>
   );
 };
+
+export const CurrentModelContext = createContext();
