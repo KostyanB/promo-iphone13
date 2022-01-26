@@ -10,28 +10,28 @@ const {
   transitionDuration,
 } = env;
 
-const animationParam = `${transitionDuration} ease-in-out forwards`;
+// const animationParam = `${transitionDuration} ease-in-out forwards`;
 
-const openAnim = keyframes`
-  from {
-    -webkit-transform: translateY(-200%);
-    transform: translateY(-200%);
-  }
-  to {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-`;
-const closeAnim = keyframes`
-  from {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  to {
-    -webkit-transform: translateY(-200%);
-    transform: translateY(-200%);
-  }
-`;
+// const openAnim = keyframes`
+//   from {
+//     -webkit-transform: translateY(-200%);
+//     transform: translateY(-200%);
+//   }
+//   to {
+//     -webkit-transform: translateY(0);
+//     transform: translateY(0);
+//   }
+// `;
+// const closeAnim = keyframes`
+//   from {
+//     -webkit-transform: translateY(0);
+//     transform: translateY(0);
+//   }
+//   to {
+//     -webkit-transform: translateY(-200%);
+//     transform: translateY(-200%);
+//   }
+// `;
 const List = styled.ul`
   display: flex;
   align-items: center;
@@ -39,7 +39,6 @@ const List = styled.ul`
   gap: 5px;
   flex-grow: 1;
   padding: 20px;
-  visibility: ${props => (props.isVisibleNav ? 'visible' : 'hidden')};
 
   @media (max-width: 768px) {
     position: absolute;
@@ -52,16 +51,18 @@ const List = styled.ul`
     padding-right: 0;
     background-color: ${backgroundColor};
     z-index: 101;
-    -webkit-animation: ${props => (props.isOpenNav ? openAnim : closeAnim)}
-      ${animationParam};
-    animation: ${props => (props.isOpenNav ? openAnim : closeAnim)}
-      ${animationParam};
+    transform: translateY(-200%);
+
+    &.isOpen {
+      transform: translateY(0);
+      transition: transform ${transitionDuration};
+    }
   }
 `;
 
 const NavList = () => {
   const {
-    falloutNav: { isOpenNav, isVisibleNav, closeNav },
+    falloutNav: { isOpenNav, closeNav },
   } = useContext(NavContext);
 
   const rootEl = useRef(null);
@@ -80,7 +81,7 @@ const NavList = () => {
   }, [rootEl, closeNav]);
 
   return (
-    <List id="burgerNav" isOpenNav={isOpenNav} isVisibleNav={isVisibleNav}>
+    <List id="burgerNav" className={isOpenNav ? 'isOpen' : ''}>
       {env.nav.map((item, i) => (
         <NavItem key={i} href={item[0]} name={item[1]} />
       ))}

@@ -83,9 +83,9 @@ const Card = () => {
   }, []);
 
   return (
-    <CardContext.Provider value={{ currentModel }}>
-      <Section id="card">
-        <Wrapper>
+    <Section id="card">
+      <Wrapper>
+        <CardContext.Provider value={{ currentModel }}>
           <ProductImg />
           <Details>
             <Title />
@@ -96,9 +96,9 @@ const Card = () => {
               <Footer />
             </Description>
           </Details>
-        </Wrapper>
-      </Section>
-    </CardContext.Provider>
+        </CardContext.Provider>
+      </Wrapper>
+    </Section>
   );
 };
 export default Card;

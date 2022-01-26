@@ -13,6 +13,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin: 50px auto 0;
 `;
 const Wrapper = styled.div`
   width: ${props => props.size || '90px'};

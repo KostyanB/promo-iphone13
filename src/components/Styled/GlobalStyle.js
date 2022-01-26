@@ -340,7 +340,4 @@ export const GlobalStyle = createGlobalStyle`
             background-color ${transitionDuration},
             border-color ${transitionDuration};
     }
-    svg {
-        transition: color ${transitionDuration};
-    }
 `;

@@ -9,13 +9,28 @@ const Wrapper = styled.div`
   bottom: 0;
   background: rgba(0, 40, 120, 0.7);
   z-index: 1001;
-  padding-top: 200px;
+  padding-top: 100px;
   color: red;
   font-size: 30px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  & > p {
+    max-width: 80%;
+    text-align: center;
+  }
 `;
 
-const ErrorLoad = text => (
-  <Wrapper>Sorry, nework error. We will fix it soon...</Wrapper>
-);
+const ErrorLoad = ({ text }) => {
+  console.log('text: ', text);
+  return (
+    <Wrapper>
+      <p>Sorry, nework error:</p>
+      <p>{text}.</p>
+      <p>We will fix it soon...</p>
+    </Wrapper>
+  );
+};
 export default ErrorLoad;

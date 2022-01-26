@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import Media from 'react-media';
 import { NavContext } from '../Context';
@@ -10,10 +10,8 @@ import { MenuIcon } from '../Styled/Icons/Icons';
 const { hoverColor, mainColor } = env.colors;
 
 const Burger = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: ${mainColor};
+  display: ${props => (props.isVisible ? 'block' : 'none')};
 
   &:hover {
     color: ${hoverColor};
@@ -22,27 +20,37 @@ const Burger = styled.button`
 
 const BurgerButton = () => {
   const {
-    falloutNav: { toggleNav, showBurger, hideBurger },
+    falloutNav: { toggleNav, closeNav },
   } = useContext(NavContext);
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  const showBurger = () => {
+    closeNav();
+    setIsVisible(true);
+  };
+
+  const hideBurger = () => {
+    closeNav();
+    setIsVisible(false);
+  };
+
   return (
-    <Media
-      queries={{
-        isBurger: '(max-width: 768px)',
-        noBurger: '(min-width: 769px)',
-      }}
-      onChange={matches => {
-        matches.isBurger && showBurger();
-        matches.noBurger && hideBurger();
-      }}>
-      {matches =>
-        matches.isBurger && (
-          <Burger onClick={toggleNav} id="burger">
-            <MenuIcon width={40} height={34} />
-          </Burger>
-        )
-      }
-    </Media>
+    <>
+      <Media
+        queries={{
+          isBurger: '(max-width: 768px)',
+          noBurger: '(min-width: 769px)',
+        }}
+        onChange={matches => {
+          matches.isBurger && showBurger();
+          matches.noBurger && hideBurger();
+        }}
+      />
+      <Burger isVisible={isVisible} onClick={toggleNav} id="burger">
+        <MenuIcon width={40} height={34} />
+      </Burger>
+    </>
   );
 };
 export default BurgerButton;

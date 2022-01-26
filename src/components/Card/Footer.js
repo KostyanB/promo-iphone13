@@ -38,8 +38,6 @@ const ButtonBuy = styled(Button)`
   border: 1px solid ${activeColor};
   color: ${btnText};
   margin-right: 28px;
-  transition: color ${transitionDuration},
-    background-color ${transitionDuration};
 
   &:hover,
   &:active {

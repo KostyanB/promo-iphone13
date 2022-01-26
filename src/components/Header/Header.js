@@ -25,6 +25,7 @@ const Nav = styled.nav`
 
   & > svg {
     color: ${mainColor};
+    transition: color ${transitionDuration};
 
     &:hover {
       color: ${hoverColor};

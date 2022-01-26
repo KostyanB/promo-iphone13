@@ -1,33 +1,34 @@
 import { useState } from 'react';
 
 const useFalloutNav = () => {
-  const [isOpenNav, setisOpenNav] = useState(true);
-  const [isVisibleNav, setisVisibleNav] = useState(true);
+  const [isOpenNav, setIsOpenNav] = useState(false);
+  const [isVisibleNav, setIsVisibleNav] = useState(true);
 
   const toggleNav = () => {
-    !isVisibleNav && setisVisibleNav(true);
-    setisOpenNav(!isOpenNav);
+    setIsVisibleNav(!isVisibleNav);
+    setIsOpenNav(!isOpenNav);
   };
-  const closeNav = () => setisOpenNav(false);
+  const closeNav = () => setIsOpenNav(false);
 
-  const showBurger = () => {
-    setisOpenNav(false);
-    setisVisibleNav(!isVisibleNav);
-  };
+  // const showBurger = () => {
+  //   setIsOpenNav(false);
+  //   // setIsVisibleNav(!isVisibleNav);
+  //   // setIsVisibleBtn(true);
+  // };
 
-  const hideBurger = () => {
-    setisVisibleNav(true);
-  };
+  // const hideBurger = () => {
+  //   setIsVisibleNav(true);
+  //   setIsVisibleBtn(false);
+  // };
 
   return {
     isOpenNav,
-    setisOpenNav,
     isVisibleNav,
-    setisVisibleNav,
+    // isVisibleBtn,
     toggleNav,
     closeNav,
-    showBurger,
-    hideBurger,
+    // showBurger,
+    // hideBurger,
   };
 };
 export default useFalloutNav;
