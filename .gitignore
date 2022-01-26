@@ -24,3 +24,7 @@ yarn-error.log*
 
 /on_hooks
 /draft
+
+.firebaserc
+firebase.json
+/.firebase
