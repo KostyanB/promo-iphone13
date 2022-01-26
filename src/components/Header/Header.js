@@ -9,11 +9,16 @@ import BurgerButton from './BurgerButton';
 import { LogoIcon } from '../Styled/Icons/Icons';
 
 const {
-  colors: { hoverColor, mainColor },
+  colors: { hoverColor, mainColor, backgroundColor },
   transitionDuration,
 } = env;
 
-const Wrapper = styled(Container)`
+const HeaderWrapper = styled.header`
+  position: fixed;
+  width: 100vw;
+  background-color: ${backgroundColor};
+`;
+const NavContainer = styled(Container)`
   max-width: min(100vw, 1130px);
 `;
 const Nav = styled.nav`
@@ -38,8 +43,8 @@ const Nav = styled.nav`
 `;
 
 const Header = () => (
-  <header>
-    <Wrapper>
+  <HeaderWrapper>
+    <NavContainer>
       <Nav>
         <LogoIcon width={34} height={40} />
         <NavContextProvider>
@@ -47,7 +52,7 @@ const Header = () => (
           <BurgerButton />
         </NavContextProvider>
       </Nav>
-    </Wrapper>
-  </header>
+    </NavContainer>
+  </HeaderWrapper>
 );
 export default Header;

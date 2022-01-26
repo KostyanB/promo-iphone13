@@ -74,6 +74,7 @@ export const GlobalStyle = createGlobalStyle`
 
     main {
         display: block;
+        padding-top: 116px;
     }
 
     /* Vertical rhythm */
@@ -340,4 +341,5 @@ export const GlobalStyle = createGlobalStyle`
             background-color ${transitionDuration},
             border-color ${transitionDuration};
     }
+
 `;

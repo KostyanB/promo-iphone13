@@ -1,20 +1,16 @@
 import React, { useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-// import useCurrentModel from '../../hooks/useCurrentModel';
-// import { CardContext } from '../Context';
 import { CurrentModelContext } from '../Context';
 import { selectCard } from '../../store/goodSlice';
-import env from '../../env.json';
 
 import Container from '../Styled/Container';
 import Title from './Title';
 import ProductImg from './ProductImg';
 import ModelBtns from './ModelBtns';
 import DetailList from './DetailList';
+import ScrollLink from '../ScrollLink';
 import Footer from './Footer';
-
-const { hoverColor, activeColor } = env.colors;
 
 const Section = styled.section`
   padding-top: 90px;
@@ -60,23 +56,9 @@ const Description = styled.div`
     flex-direction: column;
   }
 `;
-const Link = styled.a`
-  display: block;
-  width: max-content;
-  margin-bottom: 60px;
-  color: ${hoverColor};
-  font-size: 18px;
-  line-height: 21px;
-
-  &:hover,
-  &:active {
-    color: ${activeColor};
-  }
-`;
 
 const Card = () => {
   const models = useSelector(selectCard).models;
-  // const currentModel = useCurrentModel();
   const {
     currentModel: { setCurrentModel },
   } = useContext(CurrentModelContext);
@@ -96,7 +78,11 @@ const Card = () => {
           <ModelBtns />
           <Description>
             <DetailList />
-            <Link href="#characteristics">Полные харакстеристики</Link>
+            <ScrollLink
+              href="#characteristics"
+              name="Полные харакстеристики"
+              type="section-link"
+            />
             <Footer />
           </Description>
         </Details>

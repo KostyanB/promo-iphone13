@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { CurrentModelContext } from '../Context';
+import useScrollOffset from '../../hooks/useScrollOffset';
 import { selectCard } from '../../store/goodSlice';
 import env from '../../env.json';
 
@@ -55,6 +56,7 @@ const Footer = () => {
   const {
     currentModel: { currentPrice },
   } = useContext(CurrentModelContext);
+  const scrollOffset = useScrollOffset().scrollOffset;
 
   return (
     <Wrapper>

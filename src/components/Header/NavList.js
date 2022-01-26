@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { NavContext } from '../Context';
+
 import env from '../../env.json';
 
 import NavItem from './NavItem';
@@ -42,7 +43,7 @@ const List = styled.ul`
 
   @media (max-width: 768px) {
     position: absolute;
-    top: 40px;
+    top: 55px;
     right: 0;
     flex-direction: column;
     align-items: flex-end;
@@ -65,6 +66,7 @@ const NavList = () => {
     falloutNav: { isOpenNav, closeNav },
   } = useContext(NavContext);
 
+  // закрытие по клику мимо меню
   const rootEl = useRef(null);
 
   useEffect(() => {
