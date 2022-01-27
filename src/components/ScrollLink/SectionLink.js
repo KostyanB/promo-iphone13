@@ -13,7 +13,6 @@ const {
 const SectionLinkStyle = styled(Link)`
   display: block;
   width: max-content;
-  margin-bottom: 60px;
   color: ${hoverColor};
   font-size: 18px;
   line-height: 21px;

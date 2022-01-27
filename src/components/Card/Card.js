@@ -13,48 +13,39 @@ import ScrollLink from '../ScrollLink';
 import Footer from './Footer';
 
 const Section = styled.section`
-  padding-top: 90px;
-
-  @media (max-width: 968px) {
-    padding-top: 50px;
-  }
-  @media (max-width: 698px) {
-  }
-  @media (max-width: 520px) {
-  }
+  padding-top: min(5vw, 90px);
 `;
 const Wrapper = styled(Container)`
   display: flex;
   align-items: center;
+  justify-content: space-around;
 
   @media (max-width: 968px) {
     flex-direction: column;
-  }
-`;
-const Details = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media (max-width: 968px) {
-    max-width: 600px;
-    margin-bottom: 30px;
+    gap: 30px;
   }
   @media (max-width: 698px) {
-    max-width: 400px;
-    margin-bottom: 20px;
-  }
-  @media (max-width: 520px) {
+    gap: 20px;
   }
 `;
-const Description = styled.div`
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+`;
+const Details = styled(CardContainer)`
+  align-items: center;
+  @media (max-width: 968px) {
+    max-width: 700px;
+  }
+  @media (max-width: 698px) {
+    max-width: 600px;
+  }
+`;
+const Description = styled(CardContainer)`
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
-  margin-bottom: 20px;
-
-  @media (max-width: 968px) {
-    flex-direction: column;
-  }
 `;
 
 const Card = () => {
@@ -73,7 +64,7 @@ const Card = () => {
       <Wrapper>
         {/* <CardContext.Provider value={{ currentModel }}> */}
         <ProductImg />
-        <Details>
+        <Details className="details">
           <Title />
           <ModelBtns />
           <Description>

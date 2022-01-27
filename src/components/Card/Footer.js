@@ -1,68 +1,54 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import { CurrentModelContext } from '../Context';
-import useScrollOffset from '../../hooks/useScrollOffset';
-import { selectCard } from '../../store/goodSlice';
 import env from '../../env.json';
-
 import Button from '../Styled/Button';
-
-const {
-  colors: { activeColor, btnText },
-  transitionDuration,
-} = env;
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 40px;
 
   @media (max-width: 698px) {
     flex-wrap: wrap;
-    align-items: start;
+    flex-direction: column;
+    gap: 30px;
   }
 `;
 const Price = styled.p`
   min-width: 120px;
   font-weight: 700;
   font-size: 24px;
-  margin-right: 60px;
 
   @media (max-width: 698px) {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 30px;
+    align-self: baseline;
   }
 `;
-const ButtonBuy = styled(Button)`
-  background-color: ${activeColor};
-  border: 1px solid ${activeColor};
-  color: ${btnText};
-  margin-right: 28px;
+const BtnWrap = styled.div`
+  display: flex;
+  gap: 30px;
 
-  &:hover,
-  &:active {
-    background-color: ${btnText};
-    border: 1px solid ${activeColor};
-    color: ${activeColor};
-  }
   @media (max-width: 698px) {
-    margin-bottom: 30px;
+    flex-direction: column;
   }
 `;
 
 const Footer = () => {
-  const price = useSelector(selectCard).price;
   const {
     currentModel: { currentPrice },
   } = useContext(CurrentModelContext);
-  const scrollOffset = useScrollOffset().scrollOffset;
+
+  const buyColors = env.colors.specificBtnColors;
 
   return (
     <Wrapper>
       <Price>{currentPrice}&#8381;</Price>
-      <ButtonBuy data-button-buy="Оплата">Купить</ButtonBuy>
-      <Button data-button-buy="Доставка и оплата">Купить с доставкой</Button>
+      <BtnWrap>
+        <Button styles={buyColors} data-button-buy="Оплата">
+          Купить
+        </Button>
+        <Button data-button-buy="Доставка и оплата">Купить с доставкой</Button>
+      </BtnWrap>
     </Wrapper>
   );
 };

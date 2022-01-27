@@ -10,6 +10,10 @@ const Section = styled.section`
   text-align: center;
   padding-bottom: 90px;
   padding-top: 30px;
+
+  @media (max-width: 968px) {
+    padding-bottom: 30px;
+  }
 `;
 const Title = styled.h1`
   font-size: clamp(38px, 7vw, 72px);
@@ -22,28 +26,18 @@ const Description = styled.p`
   margin: 0 auto 100px;
 
   @media (max-width: 968px) {
-    line-height: 32px;
+    line-height: 1.2;
   }
   @media (max-width: 698px) {
     margin-bottom: 20px;
   }
   @media (max-width: 520px) {
-    line-height: 1.15;
+    line-height: 1.1;
   }
 `;
 const Figure = styled.figure`
-  max-width: 440px;
+  max-width: min(40vw, 440px);
   margin: 0 auto;
-
-  @media (max-width: 968px) {
-    max-width: 380px;
-  }
-  @media (max-width: 698px) {
-    max-width: 300px;
-  }
-  @media (max-width: 520px) {
-    max-width: 280px;
-  }
 `;
 
 const Present = () => {

@@ -12,7 +12,6 @@ const Buttons = styled.ul`
   gap: 24px;
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 40px;
   white-space: nowrap;
 
   @media (max-width: 698px) {
