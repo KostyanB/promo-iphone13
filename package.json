@@ -17,6 +17,7 @@
     "react-scroll": "^1.8.4",
     "react-spring": "^9.4.2",
     "redux": "^4.1.2",
+    "seamless-scroll-polyfill": "^2.1.6",
     "styled-components": "^5.3.0"
   },
   "scripts": {

@@ -6,6 +6,7 @@ import scrollToSection from '../../helpers/scrollToSection';
 import Present from '../Present';
 
 const Card = lazy(() => import('../Card'));
+const Characteristic = lazy(() => import('../Characteristic'));
 
 const Main = () => {
   const location = useLocation();
@@ -39,6 +40,7 @@ const Main = () => {
       <CurrentModelContextProvider>
         <Present />
         <Card />
+        <Characteristic />
       </CurrentModelContextProvider>
     </main>
   );

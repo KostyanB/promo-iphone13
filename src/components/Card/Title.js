@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { CurrentModelContext } from '../Context';
 import { useSelector } from 'react-redux';
 import { selectCard } from '../../store/goodSlice';
+import { Title2 } from '../Styled/Titles';
 
 const H2 = styled.h2`
   font-size: 36px;
