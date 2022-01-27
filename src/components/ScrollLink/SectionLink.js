@@ -32,7 +32,7 @@ const SectionLink = ({ target, name, offset }) => {
     <SectionLinkStyle
       to={target}
       spy={true}
-      hashSpy={true}
+      // hashSpy={true}
       smooth={true}
       offset={offset}
       duration={scrollDuration}

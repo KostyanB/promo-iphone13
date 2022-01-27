@@ -27,7 +27,7 @@ const NavLinkStyle = styled(Link)`
   }
 `;
 
-const NavLink = ({ target, name, offset }) => {
+const NavLink = ({ target, name, offset, href }) => {
   const {
     falloutNav: { closeNav },
   } = useContext(NavContext);
@@ -39,11 +39,12 @@ const NavLink = ({ target, name, offset }) => {
       activeClass="nav-active"
       to={target}
       spy={true}
-      hashSpy={true}
+      // hashSpy={true}
       smooth={true}
       offset={offset}
       duration={scrollDuration}
-      onSetInactive={handleLink}>
+      onSetInactive={handleLink}
+      href={href}>
       {name}
     </NavLinkStyle>
   );

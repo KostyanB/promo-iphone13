@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const useScrollOffset = () => {
   const [scrollOffset, setScrollOffset] = useState(0);
 
-  useEffect(() => {
-    const offset = document.querySelector('header').offsetHeight;
+  const setOffset = () => {
+    const offset = document.getElementsByTagName('header')[0].clientHeight;
     offset && setScrollOffset(-offset);
-  }, []);
+  };
+
   return {
     scrollOffset,
     setScrollOffset,
+    setOffset,
   };
 };
 export default useScrollOffset;
