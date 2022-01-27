@@ -12,8 +12,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  margin: 50px auto 0;
+  padding: 150px;
+  margin: 0 auto;
 `;
 const Wrapper = styled.div`
   width: ${props => props.size || '90px'};
