@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { CurrentModelContext } from '../Context';
 
-const Wrapper = styled.li`
+const Li = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,10 +25,10 @@ const DescriptionItem = ({ data }) => {
   const value = data[0] === 'Встроенная память (Гб)' ? currentMemory : data[1];
 
   return (
-    <Wrapper>
+    <Li>
       <p>{data[0]}</p>
       <p>{value}</p>
-    </Wrapper>
+    </Li>
   );
 };
 export default DescriptionItem;

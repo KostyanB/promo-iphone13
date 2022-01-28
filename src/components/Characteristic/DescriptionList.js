@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import DescriptionItem from './DescriptionItem';
 import { selectCharacteristics } from '../../store/goodSlice';
 
-const List = styled.ul`
+const Ul = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -15,11 +15,11 @@ const DescriptionList = ({ name }) => {
   const data = useSelector(selectCharacteristics)[name].descriptions;
 
   return (
-    <List>
+    <Ul>
       {data.map((item, i) => (
         <DescriptionItem key={i} data={item} />
       ))}
-    </List>
+    </Ul>
   );
 };
 export default DescriptionList;
