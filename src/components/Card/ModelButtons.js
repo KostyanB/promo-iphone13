@@ -29,7 +29,7 @@ const Button = styled.button`
     props.isActive ? activeColor : 'rgba(255,255,255,0)'};
 `;
 
-const ModelBtns = () => {
+const ModelButtons = () => {
   const models = useSelector(selectCard).models;
 
   const {
@@ -55,4 +55,4 @@ const ModelBtns = () => {
     </Buttons>
   );
 };
-export default ModelBtns;
+export default ModelButtons;

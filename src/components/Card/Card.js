@@ -6,8 +6,8 @@ import { selectCard } from '../../store/goodSlice';
 
 import Container from '../Styled/Container';
 import Title from './Title';
-import ProductImg from './ProductImg';
-import ModelBtns from './ModelBtns';
+import CardImage from './CardImage';
+import ModelButtons from './ModelButtons';
 import DetailList from './DetailList';
 import ScrollLink from '../ScrollLink';
 import Footer from './Footer';
@@ -63,10 +63,10 @@ const Card = () => {
     <Section id="card">
       <Wrapper>
         {/* <CardContext.Provider value={{ currentModel }}> */}
-        <ProductImg />
+        <CardImage />
         <Details className="details">
           <Title />
-          <ModelBtns />
+          <ModelButtons />
           <Description>
             <DetailList />
             <ScrollLink
