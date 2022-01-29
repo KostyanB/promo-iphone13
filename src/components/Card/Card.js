@@ -51,6 +51,7 @@ const Description = styled(CardContainer)`
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
+  text-align: left;
 `;
 const CardLink = styled(NavLink)`
   display: block;
