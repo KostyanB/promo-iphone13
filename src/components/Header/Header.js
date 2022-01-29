@@ -15,7 +15,7 @@ const {
 } = env;
 
 const HeaderWrapper = styled.header`
-  position: fixed;
+  /* position: fixed; */
   width: 100vw;
   background-color: ${backgroundColor};
 `;

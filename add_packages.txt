@@ -1,6 +1,6 @@
 If use clear "create-react-app", add packgages:
 
-npm install --save react-dom react-redux redux @reduxjs/toolkit styled-components react-media react-scroll
+npm install --save react-dom react-redux redux @reduxjs/toolkit styled-components react-spring seamless-scroll-polyfill react-media react-scroll
 
 "dependencies": {
   "@reduxjs/toolkit": "^1.6.1",

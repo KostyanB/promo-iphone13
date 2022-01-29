@@ -8,15 +8,19 @@ import { ContextProvider } from './components/Context';
 import { getGoodDb, selectError, selectStatus } from './store/goodSlice';
 
 import { GlobalStyle } from './components/Styled/GlobalStyle';
+import AppRoutes from './components/AppRoutes';
 import ErrorLoad from './components/Styled/ErrorLoad';
 import Preloader from './components/Styled/Preloader';
 import Header from './components/Header';
 // import AnimatedRoutes from './components/AnimatedRoutes';
-import Main from './components/Main/Main';
+import Main from './components/Main';
 import Page404 from './components/Page404';
-// import Present from './components/Present';
-// const Header = lazy(() => import('./components/Header'));
-// const Present = lazy(() => import('./components/Present'));
+import Present from './components/Present';
+// import Card from './components/Card';
+import AnimatedRoutes from './components/AnimatedRoutes';
+
+const Card = lazy(() => import('./components/Card'));
+const Characteristic = lazy(() => import('./components/Characteristic'));
 const DeliveryTerms = lazy(() => import('./components/DeliveryTerms'));
 const Feedbacks = lazy(() => import('./components/Feedbacks'));
 // const Card = lazy(() => import('./components/Card'));
@@ -39,18 +43,8 @@ function App() {
         <Router>
           {/* <AnimatedRoutes /> */}
           <Suspense fallback={<Preloader />}>
-            {/* {status === 'success' && <AnimatedRoutes />} */}
-            {status === 'success' && (
-              <Routes>
-                <Route path="/" element={<Header />}>
-                  <Route index element={<Main />} />
-                  <Route path="main" element={<Main />} />
-                  <Route path="delivery-terms" element={<DeliveryTerms />} />
-                  <Route path="feedback" element={<Feedbacks />} />
-                </Route>
-                <Route path="*" element={<Page404 />} />
-              </Routes>
-            )}
+            {status === 'success' && <AnimatedRoutes />}
+            {/* {status === 'success' && <AppRoutes />} */}
           </Suspense>
         </Router>
 

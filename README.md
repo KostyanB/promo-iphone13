@@ -12,7 +12,7 @@ Pet-проект. Промо-лендинг iPhone13
 
 ## Стек и технологии
 
-- ReactJS, Redux, Redux/Toolkit, React Hooks, Styled Components, Context Provider, [react-media](https://www.npmjs.com/package/react-media), [react-scroll](https://www.npmjs.com/package/react-scroll), Grid/Flex, RestAPI.
+- ReactJS, Redux, Redux/Toolkit, React Hooks, Styled Components, Context Provider, [React Spring](https://react-spring.io), [react-media](https://www.npmjs.com/package/react-media), [react-scroll](https://www.npmjs.com/package/react-scroll), [seamless-scroll-polyfill](https://www.npmjs.com/package/seamless-scroll-polyfill) для поддержки скролла на Safari, Grid/Flex, RestAPI.
 - Настройки приложения в файле `env.json`: стилевое оформление (цвета и шрифты), навигация.
 - Конфигурация позволяет получать полный объем данных о сеансах с сервера с минимальной доработкой приложения.
 - В приложении имитируется загрузка базы данных фильмов c сервера (фактически БД находится JSON-файлах в `public/db`).

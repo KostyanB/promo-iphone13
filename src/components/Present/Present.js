@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-
 import { selectPresent } from '../../store/goodSlice';
-
 import Container from '../Styled/Container';
 import { Title1 } from '../Styled/Titles';
-import Section from '../Styled/Section';
 
 const Description = styled.p`
   font-size: clamp(18px, 3.4vw, 36px);
@@ -34,15 +31,13 @@ const Present = () => {
   const { imgSrc, imgAlt, promo, title } = presentDb;
 
   return (
-    <Section id="present">
-      <Container>
-        <Title1>{title}</Title1>
-        <Description>{promo}</Description>
-        <Figure>
-          <img src={imgSrc} alt={imgAlt} />
-        </Figure>
-      </Container>
-    </Section>
+    <Container>
+      <Title1>{title}</Title1>
+      <Description>{promo}</Description>
+      <Figure>
+        <img src={imgSrc} alt={imgAlt} />
+      </Figure>
+    </Container>
   );
 };
 export default Present;

@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { CurrentModelContext } from '../Context';
 import { selectCard } from '../../store/goodSlice';
 
@@ -12,9 +13,13 @@ import DetailList from './DetailList';
 import ScrollLink from '../ScrollLink';
 import Footer from './Footer';
 
-const Section = styled.section`
-  padding-top: min(5vw, 90px);
-`;
+import env from '../../env.json';
+
+const {
+  colors: { hoverColor, activeColor },
+  transitionDuration,
+} = env;
+
 const Wrapper = styled(Container)`
   display: flex;
   align-items: center;
@@ -47,6 +52,20 @@ const Description = styled(CardContainer)`
   font-size: 18px;
   line-height: 21px;
 `;
+const CardLink = styled(NavLink)`
+  display: block;
+  width: max-content;
+  color: ${hoverColor};
+  font-size: 18px;
+  line-height: 21px;
+  cursor: pointer;
+  transition: color ${transitionDuration};
+
+  &:hover,
+  &:active {
+    color: ${activeColor};
+  }
+`;
 
 const Card = () => {
   const models = useSelector(selectCard).models;
@@ -60,26 +79,25 @@ const Card = () => {
   }, []);
 
   return (
-    <Section id="card">
-      <Wrapper>
-        {/* <CardContext.Provider value={{ currentModel }}> */}
-        <CardImage />
-        <Details className="details">
-          <Title />
-          <ModelButtons />
-          <Description>
-            <DetailList />
-            <ScrollLink
-              href="#characteristics"
-              name="Полные харакстеристики"
-              type="section-link"
-            />
-            <Footer />
-          </Description>
-        </Details>
-        {/* </CardContext.Provider> */}
-      </Wrapper>
-    </Section>
+    <Wrapper>
+      {/* <CardContext.Provider value={{ currentModel }}> */}
+      <CardImage />
+      <Details className="details">
+        <Title />
+        <ModelButtons />
+        <Description>
+          <DetailList />
+          {/* <ScrollLink
+            href="#characteristics"
+            name="Полные харакстеристики"
+            type="section-link"
+          /> */}
+          <CardLink to="/main/characteristics">Полные харакстеристики</CardLink>
+          <Footer />
+        </Description>
+      </Details>
+      {/* </CardContext.Provider> */}
+    </Wrapper>
   );
 };
 export default Card;

@@ -74,7 +74,6 @@ export const GlobalStyle = createGlobalStyle`
 
     main {
         display: block;
-        padding-top: 116px;
     }
 
     /* Vertical rhythm */
@@ -340,6 +339,16 @@ export const GlobalStyle = createGlobalStyle`
         transition: color ${transitionDuration},
             background-color ${transitionDuration},
             border-color ${transitionDuration};
+    }
+    /*
+    * компенсация смещения блоков при анимированном роутинге
+    * из-за одновременного рендеринга 2-х DOM-элементов
+    * в AnimatedRoutes в transition animated.div добавлен
+    * стиль 'grid-area: 1/-1'
+    */
+    #root {
+        display: grid;
+
     }
 
 `;

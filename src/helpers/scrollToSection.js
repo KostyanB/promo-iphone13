@@ -1,22 +1,10 @@
-import { windowScrollTo } from 'seamless-scroll-polyfill';
+// seamless-polifill for Safari support
 
-const scrollToSection = (id, offset) => {
-  const section = document.getElementById(id);
+import { elementScrollIntoView } from 'seamless-scroll-polyfill';
 
-  if (section) {
-    const pos = section.getBoundingClientRect().top + window.pageYOffset - 116;
-
-    //seamless-polifill for Safari support
-    windowScrollTo(window, {
-      behavior: 'smooth',
-      top: pos,
-      left: 0,
-    });
-
-    // window.scrollTo({
-    //   top: pos,
-    //   behavior: 'smooth',
-    // });
-  }
-};
+const scrollToSection = section =>
+  elementScrollIntoView(section, {
+    behavior: 'smooth',
+    block: 'start',
+  });
 export default scrollToSection;
