@@ -1,6 +1,5 @@
 import React from 'react';
 import IconStyle from './IconStyle';
-import env from '../../../env.json';
 
 export const LogoIcon = ({
   name = 'apple logo',

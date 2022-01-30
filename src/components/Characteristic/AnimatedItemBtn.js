@@ -4,9 +4,8 @@ import { animated, useSpring } from 'react-spring';
 import env from '../../env.json';
 
 const {
-  hoverColor,
   mainBtnColors: { btnBorder, btnText },
-  buyBtnColors: { buyBtnBorder, buyBtnText, buyBtnHoverText },
+  buyBtnColors: { buyBtnBorder, buyBtnHoverText },
 } = env.colors;
 
 const closeBtnArrow = `transparent ${btnBorder} ${btnBorder} transparent`;

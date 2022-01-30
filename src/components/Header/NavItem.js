@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 // import { useResolvedPath, useMatch, Link, useLocation } from 'react-router-dom';
 // import type { LinkProps } from 'react-router-dom';
 
 import { NavContext } from '../Context';
 import RouteLink from './RouteLink';
-import env from '../../env.json';
+// import env from '../../env.json';
 // import ScrollLink from '../ScrollLink';
 
-const {
-  colors: { hoverColor },
-  // transitionDuration,
-  // scrollDuration,
-} = env;
+// const {
+//   colors: { hoverColor },
+// transitionDuration,
+// scrollDuration,
+// } = env;
 
 // const Item = styled.li`
 //   white-space: nowrap;
@@ -40,14 +40,14 @@ const NavItem = ({ href, name }) => {
   //     //? роутинг на страницу
   //   }
   // };
-  const handleNavItem = e => {
-    e.preventDefault();
-    closeNav();
-    // scrollIntoSection(href);
-  };
+  // const handleNavItem = e => {
+  //   e.preventDefault();
+  //   closeNav();
+  //   // scrollIntoSection(href);
+  // };
 
   // const linkToSection = href.charAt(0) === '#';
-  const linkToSection = href.split('/')[1] === 'main';
+  // const linkToSection = href.split('/')[1] === 'main';
 
   return (
     <li>

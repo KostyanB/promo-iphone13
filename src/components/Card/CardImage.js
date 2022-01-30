@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectPresent } from '../../store/goodSlice';
-import { animated, useTransition } from 'react-spring';
+import { animated, useTransition, config } from 'react-spring';
 import { CurrentModelContext } from '../Context';
 
 const CardImg = styled.figure`
@@ -26,6 +26,7 @@ const AnimateImg = ({ img, text }) => {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
+    config: config.slow,
   });
 
   return changeImg((props, item) => (

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useMemo } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -10,7 +10,6 @@ import Title from './Title';
 import CardImage from './CardImage';
 import ModelButtons from './ModelButtons';
 import DetailList from './DetailList';
-// import ScrollLink from '../ScrollLink';
 import Footer from './Footer';
 
 import env from '../../env.json';
@@ -26,6 +25,7 @@ const Wrapper = styled(Container)`
 
   @media (max-width: 968px) {
     flex-direction: column;
+  }
 `;
 const CardContainer = styled.div`
   display: flex;
@@ -68,10 +68,9 @@ const Card = () => {
     currentModel: { setCurrentModel },
   } = useContext(CurrentModelContext);
 
-  useEffect(() => {
-    const startModel = Object.entries(models)[0][1];
-    setCurrentModel(startModel);
-  }, []);
+  const startModel = useMemo(() => Object.entries(models)[0][1], [models]);
+
+  useEffect(() => setCurrentModel(startModel), []);
 
   return (
     <Wrapper>

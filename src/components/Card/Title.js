@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
 import { CurrentModelContext } from '../Context';
 import { useSelector } from 'react-redux';
 import { selectCard } from '../../store/goodSlice';
