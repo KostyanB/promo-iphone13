@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import env from '../../env.json';
+import Container from './Container';
 
 const loaderColor = env.colors.hoverColor;
 
@@ -8,14 +9,11 @@ const loaderColor = env.colors.hoverColor;
 const circleStyle = `4px solid ${loaderColor}`;
 const animationParam = '1s cubic-bezier(.42, .61, .58, .41) infinite';
 
-const Container = styled.div`
-  display: flex;
+const Wrapper = styled(Container)`
   justify-content: center;
-  align-items: center;
   padding: 150px;
-  margin: 0 auto;
 `;
-const Wrapper = styled.div`
+const Loader = styled.div`
   width: ${props => props.size || '90px'};
   height: ${props => props.size || '90px'};
   border-radius: 50%;
@@ -66,12 +64,12 @@ const Inner = styled(Circle)`
   animation: ${ReverseRotate} ${animationParam};
 `;
 
-const Loader = ({ size = 90 }) => (
-  <Container>
-    <Wrapper size={`${size}px`}>
+const Preloader = ({ size = 90 }) => (
+  <Wrapper>
+    <Loader size={`${size}px`}>
       <Outter />
       <Inner />
-    </Wrapper>
-  </Container>
+    </Loader>
+  </Wrapper>
 );
-export default Loader;
+export default Preloader;

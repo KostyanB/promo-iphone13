@@ -5,7 +5,7 @@ import env from '../../env.json';
 
 const {
   hoverColor,
-  defaultBtnColors: { btnBorder, btnText },
+  mainBtnColors: { btnBorder, btnText },
 } = env.colors;
 
 const closeBtnArrow = `transparent ${btnBorder} ${btnBorder} transparent`;

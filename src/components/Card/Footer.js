@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { CurrentModelContext } from '../Context';
-import env from '../../env.json';
-import Button from '../Styled/Button';
+import { MainButton, BuyButton } from '../Styled/Button';
 
 const Wrapper = styled.div`
   display: flex;
@@ -38,16 +37,14 @@ const Footer = () => {
     currentModel: { currentPrice },
   } = useContext(CurrentModelContext);
 
-  const buyColors = env.colors.specificBtnColors;
-
   return (
     <Wrapper>
       <Price>{currentPrice}&#8381;</Price>
       <BtnWrap>
-        <Button styles={buyColors} data-button-buy="Оплата">
-          Купить
-        </Button>
-        <Button data-button-buy="Доставка и оплата">Купить с доставкой</Button>
+        <BuyButton data-button-buy="Оплата">Купить</BuyButton>
+        <MainButton data-button-buy="Доставка и оплата">
+          Купить с доставкой
+        </MainButton>
       </BtnWrap>
     </Wrapper>
   );

@@ -4,7 +4,7 @@ import { Context, NavContextProvider } from '../Context';
 import { Outlet } from 'react-router-dom';
 import env from '../../env.json';
 
-import Container from '../Styled/Container';
+// import Container from '../Styled/Container';
 import NavList from './NavList';
 import BurgerButton from './BurgerButton';
 import { LogoIcon } from '../Styled/Icons/Icons';
@@ -19,8 +19,10 @@ const HeaderWrapper = styled.header`
   width: 100vw;
   background-color: ${backgroundColor};
 `;
-const NavContainer = styled(Container)`
+const NavContainer = styled.div`
   max-width: min(100vw, 1130px);
+  margin: 0 auto;
+  padding: 30px 20px;
 `;
 const Nav = styled.nav`
   position: relative;

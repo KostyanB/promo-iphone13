@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import Container from '../Styled/Container';
+import env from '../../env.json';
+
+const { activeColor } = env.colors;
 
 const Wrapper = styled(Container)`
   height: 100px;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  color: #f93c00;
+  color: ${activeColor};
   font-size: 30px;
 `;
 

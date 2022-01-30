@@ -24,7 +24,6 @@ export const goodSlice = createSlice({
     present: null,
     card: null,
     characteristics: null,
-    crossSell: null,
   },
   extraReducers: {
     [getGoodDb.pending]: state => {
@@ -38,11 +37,6 @@ export const goodSlice = createSlice({
       state.present = data.present;
       state.card = data.card;
       state.characteristics = data.characteristics;
-
-      state.crossSell = data['cross-sell'].reduce((acc, item) => {
-        acc[item['id']] = item;
-        return acc;
-      }, {});
     },
     [getGoodDb.rejected]: (state, action) => {
       state.status = 'rejected';
@@ -55,7 +49,6 @@ export const selectGoodDb = state => state.goodDb.goodDb;
 export const selectPresent = state => state.goodDb.present;
 export const selectCard = state => state.goodDb.card;
 export const selectCharacteristics = state => state.goodDb.characteristics;
-export const selectCrossSell = state => state.goodDb.crossSell;
 
 export const selectError = state => state.goodDb.error;
 export const selectStatus = state => state.goodDb.status;

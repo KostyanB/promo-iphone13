@@ -10,7 +10,7 @@ import Title from './Title';
 import CardImage from './CardImage';
 import ModelButtons from './ModelButtons';
 import DetailList from './DetailList';
-import ScrollLink from '../ScrollLink';
+// import ScrollLink from '../ScrollLink';
 import Footer from './Footer';
 
 import env from '../../env.json';
@@ -21,17 +21,11 @@ const {
 } = env;
 
 const Wrapper = styled(Container)`
-  display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-around;
 
   @media (max-width: 968px) {
     flex-direction: column;
-    gap: 30px;
-  }
-  @media (max-width: 698px) {
-    gap: 20px;
-  }
 `;
 const CardContainer = styled.div`
   display: flex;

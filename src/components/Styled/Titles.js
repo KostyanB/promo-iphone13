@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Title1 = styled.h1`
   font-size: clamp(38px, 7vw, 72px);
-  margin-bottom: 40px;
 `;
 
 export const Title2 = styled.h2`
@@ -18,5 +17,4 @@ export const Title2 = styled.h2`
 export const SectionTitle = styled.h2`
   font-weight: 700;
   font-size: 24px;
-  margin-bottom: 40px;
 `;
