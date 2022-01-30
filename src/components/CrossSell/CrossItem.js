@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { animated, useSpring, config } from 'react-spring';
 
-import { BuyButton } from '../Styled/Button';
+import { BuyButton } from '../Styled/Buttons';
 
 const Item = styled.article`
   display: flex;

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import env from '../env.json';
-import { getGoodDb } from './goodSlice';
+import { getGoodDb } from './getGoodDbSlice';
 
 const {
   stepForShowCrossSell,

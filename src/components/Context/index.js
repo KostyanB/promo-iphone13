@@ -1,13 +1,7 @@
 import { Context, ContextProvider } from './Context';
-import {
-  NavContext,
-  NavContextProvider,
-} from './NavContext';
+import { NavContext, NavContextProvider } from './NavContext';
 
-import {
-  CurrentModelContext,
-  CurrentModelContextProvider,
-} from './CurrentModelContext';
+import { MainContext, MainContextProvider } from './MainContext';
 
 import { CardContext, CardContextProvider } from './CardContext';
 
@@ -17,8 +11,8 @@ export { ContextProvider };
 export { NavContext };
 export { NavContextProvider };
 
-export { CurrentModelContext };
-export { CurrentModelContextProvider };
+export { MainContext };
+export { MainContextProvider };
 
 export { CardContext };
 export { CardContextProvider };

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { CurrentModelContext } from '../Context';
+import { MainContext } from '../Context';
 import { useSelector } from 'react-redux';
-import { selectCard } from '../../store/goodSlice';
+import { selectCard } from '../../store/getGoodDbSlice';
 import { Title2 } from '../Styled/Titles';
 
 const Title = () => {
@@ -9,7 +9,7 @@ const Title = () => {
 
   const {
     currentModel: { currentColor, currentMemory },
-  } = useContext(CurrentModelContext);
+  } = useContext(MainContext);
 
   return (
     <Title2>

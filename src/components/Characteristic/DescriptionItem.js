@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { CurrentModelContext } from '../Context';
+import { MainContext } from '../Context';
 
 const Li = styled.li`
   display: flex;
@@ -20,7 +20,7 @@ const Li = styled.li`
 const DescriptionItem = ({ data }) => {
   const {
     currentModel: { currentMemory },
-  } = useContext(CurrentModelContext);
+  } = useContext(MainContext);
 
   const value = data[0] === 'Встроенная память (Гб)' ? currentMemory : data[1];
 

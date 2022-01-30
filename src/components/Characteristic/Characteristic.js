@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useSelector } from 'react-redux';
-import { selectCharacteristics } from '../../store/goodSlice';
+import { selectCharacteristics } from '../../store/getGoodDbSlice';
 
 import Container from '../Styled/Container';
 import { SectionTitle } from '../Styled/Titles';

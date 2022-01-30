@@ -7,7 +7,7 @@ import {
   selectCountStack,
 } from '../../store/crossSellSlice';
 
-import { MainButton } from '../Styled/Button';
+import { MainButton } from '../Styled/Buttons';
 
 const Button = styled(MainButton)`
   align-self: flex-end;

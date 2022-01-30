@@ -2,8 +2,8 @@ import React, { useEffect, useContext, useMemo } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { CurrentModelContext } from '../Context';
-import { selectCard } from '../../store/goodSlice';
+import { MainContext } from '../Context';
+import { selectCard } from '../../store/getGoodDbSlice';
 
 import Container from '../Styled/Container';
 import Title from './Title';
@@ -66,7 +66,7 @@ const Card = () => {
   const models = useSelector(selectCard).models;
   const {
     currentModel: { setCurrentModel },
-  } = useContext(CurrentModelContext);
+  } = useContext(MainContext);
 
   const startModel = useMemo(() => Object.entries(models)[0][1], [models]);
 

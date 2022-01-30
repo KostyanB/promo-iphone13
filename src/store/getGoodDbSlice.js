@@ -15,7 +15,7 @@ export const getGoodDb = createAsyncThunk(
   },
 );
 
-export const goodSlice = createSlice({
+export const getGoodDbSlice = createSlice({
   name: 'goodDb',
   initialState: {
     goodDb: null,
@@ -53,4 +53,4 @@ export const selectCharacteristics = state => state.goodDb.characteristics;
 export const selectError = state => state.goodDb.error;
 export const selectStatus = state => state.goodDb.status;
 
-export default goodSlice.reducer;
+export default getGoodDbSlice.reducer;

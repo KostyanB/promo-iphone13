@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useMemo, lazy } from 'react';
 import { useLocation } from 'react-router-dom';
-import { CurrentModelContextProvider } from '../Context';
+import { MainContextProvider } from '../Context';
 import scrollToSection from '../../helpers/scrollToSection';
 
 import Section from '../Styled/Section';
 import Present from '../Present';
+import Modal from '../Modal';
 
 const Card = lazy(() => import('../Card'));
 const Characteristic = lazy(() => import('../Characteristic'));
@@ -36,7 +37,7 @@ const Main = () => {
 
   return (
     <main>
-      <CurrentModelContextProvider>
+      <MainContextProvider>
         <Section id="present" ref={present}>
           <Present />
         </Section>
@@ -49,7 +50,8 @@ const Main = () => {
         <Section id="crossSell" ref={crossSell}>
           <CrossSell />
         </Section>
-      </CurrentModelContextProvider>
+        <Modal />
+      </MainContextProvider>
     </main>
   );
 };

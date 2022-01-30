@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import DescriptionItem from './DescriptionItem';
-import { selectCharacteristics } from '../../store/goodSlice';
+import { selectCharacteristics } from '../../store/getGoodDbSlice';
 
 const Ul = styled.ul`
   display: flex;

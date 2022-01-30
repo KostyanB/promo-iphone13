@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import { selectPresent } from '../../store/goodSlice';
+import { selectPresent } from '../../store/getGoodDbSlice';
 import Container from '../Styled/Container';
 import { Title1 } from '../Styled/Titles';
 

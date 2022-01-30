@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import { CurrentModelContext } from '../Context';
-import { selectCard } from '../../store/goodSlice';
+import { MainContext } from '../Context';
+import { selectCard } from '../../store/getGoodDbSlice';
 import env from '../../env.json';
 
 const { activeColor, mainColor } = env.colors;
@@ -38,7 +38,7 @@ const ModelButtons = () => {
 
   const {
     currentModel: { currentColor, setCurrentModel },
-  } = useContext(CurrentModelContext);
+  } = useContext(MainContext);
 
   const handleCurrentModel = model => setCurrentModel(models[model]);
 

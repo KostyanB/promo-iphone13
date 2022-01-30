@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { CurrentModelContext } from '../Context';
-import { MainButton, BuyButton } from '../Styled/Button';
+import { MainContext } from '../Context';
+import BuyButtons from './BuyButtons';
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,29 +23,16 @@ const Price = styled.p`
     align-self: baseline;
   }
 `;
-const BtnWrap = styled.div`
-  display: flex;
-  gap: 30px;
-
-  @media (max-width: 698px) {
-    flex-direction: column;
-  }
-`;
 
 const Footer = () => {
   const {
     currentModel: { currentPrice },
-  } = useContext(CurrentModelContext);
+  } = useContext(MainContext);
 
   return (
     <Wrapper>
       <Price>{currentPrice}&#8381;</Price>
-      <BtnWrap>
-        <BuyButton data-button-buy="Оплата">Купить</BuyButton>
-        <MainButton data-button-buy="Доставка и оплата">
-          Купить с доставкой
-        </MainButton>
-      </BtnWrap>
+      <BuyButtons />
     </Wrapper>
   );
 };
