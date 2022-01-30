@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { animated, useSpring, config } from 'react-spring';
+
 import { BuyButton } from '../Styled/Button';
 
 const Item = styled.article`
@@ -32,11 +34,19 @@ const Price = styled.p`
 const CrossItem = ({ data }) => {
   const { id, name, photo, price } = data;
 
+  const props = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: config.slow,
+  });
+  const AnimatedImage = animated(Image);
+
   const handleBuyCrossGood = () => {};
+
   return (
     <li>
       <Item>
-        <Image src={photo} alt={id} />
+        <AnimatedImage style={props} src={photo} alt={id} />
         <Title>{name}</Title>
         <Price>{price}&#8381;</Price>
         <BuyButton onClick={handleBuyCrossGood}>Купить</BuyButton>

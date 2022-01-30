@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { animated, useTransition } from 'react-spring';
+import { animated, useTransition, config } from 'react-spring';
 // components
 import Main from '../Main';
 import Page404 from '../Page404';
@@ -20,9 +20,7 @@ const AnimatedRoutes = () => {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    onRest: {
-      display: 'grid',
-    },
+    config: config.slow,
   });
   /*
    * в стиль animated.div добавлен gridArea: '1/-1' для компенсации
