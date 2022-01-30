@@ -16,7 +16,7 @@ import Footer from './Footer';
 import env from '../../env.json';
 
 const {
-  colors: { hoverColor, activeColor },
+  colors: { activeColor, cardLinkColor },
   transitionDuration,
 } = env;
 
@@ -50,7 +50,7 @@ const Description = styled(CardContainer)`
 const CardLink = styled(NavLink)`
   display: block;
   width: max-content;
-  color: ${hoverColor};
+  color: ${cardLinkColor};
   font-size: 18px;
   line-height: 21px;
   cursor: pointer;
@@ -77,7 +77,7 @@ const Card = () => {
     <Wrapper>
       {/* <CardContext.Provider value={{ currentModel }}> */}
       <CardImage />
-      <Details className="details">
+      <Details>
         <Title />
         <ModelButtons />
         <Description>

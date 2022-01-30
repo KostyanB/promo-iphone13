@@ -6,10 +6,11 @@ import env from '../../env.json';
 const {
   hoverColor,
   mainBtnColors: { btnBorder, btnText },
+  buyBtnColors: { buyBtnBorder, buyBtnText, buyBtnHoverText },
 } = env.colors;
 
 const closeBtnArrow = `transparent ${btnBorder} ${btnBorder} transparent`;
-const openBtnArrow = `${hoverColor} transparent transparent ${hoverColor}`;
+const openBtnArrow = `${buyBtnBorder} transparent transparent ${buyBtnBorder}`;
 
 const Button = styled.button`
   position: relative;
@@ -36,19 +37,19 @@ const Button = styled.button`
 const AnimatedItemBtn = ({ title, isOpen, toggleFn }) => {
   const AnimatedButton = animated(Button);
   const closeBtnBorders = `transparent transparent ${btnBorder} transparent`;
-  const openBtnBorders = `${hoverColor} ${hoverColor} transparent ${hoverColor}`;
+  const openBtnBorders = `${buyBtnBorder} ${buyBtnBorder} transparent ${buyBtnBorder}`;
 
   const openBtnProps = useSpring({
     borderColor: closeBtnBorders,
     color: btnText,
     to: {
       borderColor: openBtnBorders,
-      color: hoverColor,
+      color: buyBtnHoverText,
     },
   });
   const closeBtnProps = useSpring({
     borderColor: openBtnBorders,
-    color: hoverColor,
+    color: buyBtnHoverText,
     to: {
       borderColor: closeBtnBorders,
       color: btnText,

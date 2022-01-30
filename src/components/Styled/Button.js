@@ -14,6 +14,7 @@ import env from '../../env.json';
  */
 
 const {
+  mainColor,
   hoverColor,
   mainBtnColors: {
     btnBack,
@@ -82,7 +83,7 @@ export const BuyButton = styled(Button)`
     color: ${props => props?.styles?.btnHoverText || buyBtnHoverText};
   }
   &:active {
-    color: ${props => props?.styles?.btnHoverText || hoverColor};
+    color: ${props => props?.styles?.btnHoverText || mainColor};
   }
 `;
 export default Button;

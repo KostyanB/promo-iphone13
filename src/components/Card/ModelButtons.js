@@ -23,10 +23,14 @@ const Buttons = styled.ul`
 const Button = styled.button`
   background-color: transparent;
   padding: 11px 16px;
-  color: ${props => (props.isActive ? activeColor : mainColor)};
+  color: ${mainColor};
   border-bottom: 1px solid;
   border-bottom-color: ${props =>
     props.isActive ? activeColor : 'rgba(255,255,255,0)'};
+
+  :hover {
+    color: ${activeColor};
+  }
 `;
 
 const ModelButtons = () => {
