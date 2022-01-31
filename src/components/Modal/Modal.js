@@ -1,8 +1,19 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { MainContext } from '../Context';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectError,
+  selectStatus,
+  clearError,
+  clearOrder,
+} from '../../store/sendOrderSlice';
+import { animated, useSpring, config } from 'react-spring';
 import env from '../../env.json';
 import Form from './Form';
+import Preloader from '../Styled/Preloader';
+import ModalMessage from './ModalMessage';
+import { MainButton } from '../Styled/Buttons';
 
 const { hoverColor, mainColor } = env.colors;
 
@@ -20,9 +31,10 @@ const Wrapper = styled.div`
 const Content = styled.div`
   /* display: grid; */
   position: relative;
-  max-width: 640px;
+  width: min(90vw, 640px);
   padding: 20px;
   background-color: #fff;
+  border-radius: 5px;
   box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
 `;
 const Close = styled.button`
@@ -46,18 +58,45 @@ const Subtitle = styled.h2`
 `;
 
 const Modal = () => {
+  const dispatch = useDispatch();
   const {
     openModal: { isOpen, onClose },
   } = useContext(MainContext);
+  const formError = useSelector(selectError);
+  const formStatus = useSelector(selectStatus);
 
   const closeModal = () => onClose();
+
+  const clearForm = () => {
+    dispatch(clearOrder());
+    closeModal();
+  };
+
+  const handleError = () => {
+    dispatch(clearError());
+    closeModal();
+  };
 
   return (
     <Wrapper open={isOpen}>
       <Content>
         <Close onClick={closeModal}>✘</Close>
         <Subtitle>Доставка и оплата</Subtitle>
-        <Form />
+        {formStatus === 'loading' ? (
+          <Preloader />
+        ) : formStatus === 'success' ? (
+          <>
+            <ModalMessage />
+            <MainButton onClick={clearForm}>Ок</MainButton>
+          </>
+        ) : formError ? (
+          <>
+            <ModalMessage text={formError} />
+            <MainButton onClick={handleError}>Закрыть</MainButton>
+          </>
+        ) : (
+          <Form />
+        )}
       </Content>
     </Wrapper>
   );

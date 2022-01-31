@@ -5,15 +5,19 @@ const useCurrentModel = () => {
   const [currentImg, setCurrentImg] = useState('');
   const [currentMemory, setCurrentMemory] = useState('');
   const [currentPrice, setCurrentPrice] = useState('');
+  const [modelName, setModelName] = useState('');
 
-  const setCurrentModel = model => {
-    setCurrentColor(model.color);
-    setCurrentImg(model.imgSrc);
-    setCurrentMemory(model.memory);
-    setCurrentPrice(model.price);
+  const setCurrentModel = (model, name) => {
+    const { color, imgSrc, memory, price } = model;
+    setCurrentColor(color);
+    setCurrentImg(imgSrc);
+    setCurrentMemory(memory);
+    setCurrentPrice(price);
+    setModelName(`${name}${memory}GB ${color}`);
   };
 
   return {
+    modelName,
     currentColor,
     currentImg,
     currentMemory,

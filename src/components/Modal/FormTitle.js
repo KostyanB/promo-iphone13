@@ -1,33 +1,46 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { MainContext } from '../Context';
-import { useSelector } from 'react-redux';
 import { selectCard } from '../../store/getGoodDbSlice';
+import { useSelector } from 'react-redux';
+import {
+  selectMainGood,
+  selectCrossOrder,
+  selectDelivery,
+} from '../../store/sendOrderSlice';
 
 const Title = styled.h3`
   font-size: 36px;
-  line-height: 43px;
+  line-height: 1.2;
   margin-bottom: 30px;
 `;
+const Cross = styled.p`
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 10px;
 
-const FormTitle = () => {
-  const {
-    currentModel: { currentColor, currentMemory },
-  } = useContext(MainContext);
-  const title = useSelector(selectCard).title;
+  &:last-of-type {
+    margin-bottom: 30px;
+  }
+`;
 
-  const currentTitle = `${title}${currentMemory}GB ${currentColor}`;
+const FormTitle = ({ notEmptyCross }) => {
+  const mainGood = useSelector(selectMainGood);
+  const crossOrder = useSelector(selectCrossOrder);
 
   return (
     <>
-      <input
-        type="text"
-        className="visually-hidden"
-        name="name-good"
-        value={currentTitle}
-        disabled
-      />
-      <Title>{currentTitle}</Title>
+      <Title>{mainGood}</Title>
+      {notEmptyCross && (
+        <>
+          <Cross>Дополнительно: </Cross>
+          {Object.values(crossOrder).map((text, i) => (
+            <Cross key={i}>
+              {i + 1}: {text}
+            </Cross>
+          ))}
+        </>
+      )}
     </>
   );
 };

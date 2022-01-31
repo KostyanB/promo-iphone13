@@ -23,7 +23,7 @@ function App() {
       <GlobalStyle />
       <ContextProvider>
         <Router>
-          <Suspense fallback={<Preloader />}>
+          <Suspense fallback={<Preloader top={150} />}>
             {status === 'success' && <AnimatedRoutes />}
           </Suspense>
         </Router>

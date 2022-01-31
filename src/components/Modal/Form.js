@@ -1,44 +1,30 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCrossOrder, sendOrder } from '../../store/sendOrderSlice';
 
 import FormTitle from './FormTitle';
-import { BuyButton } from '../Styled/Buttons';
-
-const Label = styled.label`
-  display: flex;
-  margin-bottom: 12px;
-  align-items: center;
-
-  & > span {
-    min-width: 105px;
-    font-size: 14px;
-    margin-right: 20px;
-  }
-`;
-const Input = styled.input`
-  flex-grow: 1;
-  border-style: solid;
-  border-width: 1px;
-  border-color: transparent transparent #000 transparent;
-`;
+import HiddenInputs from './HiddenInputs';
+import Inputs from './Inputs';
+import SubmitButton from './SubmitButton';
 
 const Form = () => {
+  const formRef = useRef(null);
+  const dispatch = useDispatch();
+  const crossOrder = useSelector(selectCrossOrder);
+  const emptyCross = !Object.keys(crossOrder).length;
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const data = new FormData(formRef.current);
+    dispatch(sendOrder(data));
+  };
+
   return (
-    <form>
-      <FormTitle />
-      <Label>
-        <span>Куда доставить</span>
-        <Input type="text" />
-      </Label>
-      <Label>
-        <span>Кому</span>
-        <Input type="text" />
-      </Label>
-      <Label>
-        <span>Телефон</span>
-        <Input type="text" />
-      </Label>
-      <BuyButton type="submit">Заказать доставку</BuyButton>
+    <form id="modal-form" ref={formRef} onSubmit={handleSubmit}>
+      <HiddenInputs notEmptyCross={!emptyCross} />
+      <FormTitle notEmptyCross={!emptyCross} />
+      <Inputs />
+      <SubmitButton />
     </form>
   );
 };

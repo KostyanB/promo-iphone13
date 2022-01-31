@@ -63,14 +63,14 @@ const CardLink = styled(NavLink)`
 `;
 
 const Card = () => {
-  const models = useSelector(selectCard).models;
+  const { models, title } = useSelector(selectCard);
   const {
     currentModel: { setCurrentModel },
   } = useContext(MainContext);
 
   const startModel = useMemo(() => Object.entries(models)[0][1], [models]);
 
-  useEffect(() => setCurrentModel(startModel), []);
+  useEffect(() => setCurrentModel(startModel, title), []);
 
   return (
     <Wrapper>

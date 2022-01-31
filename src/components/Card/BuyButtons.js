@@ -1,6 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import styled from 'styled-components';
 import { MainContext } from '../Context';
+import { useDispatch } from 'react-redux';
+import { setMainGood, setDelivery } from '../../store/sendOrderSlice';
+
 import { MainButton, BuyButton } from '../Styled/Buttons';
 
 const BtnWrap = styled.div`
@@ -13,22 +16,22 @@ const BtnWrap = styled.div`
 `;
 
 const BuyButtons = () => {
+  const dispatch = useDispatch();
+
   const {
-    currentModel: { currentPrice },
+    currentModel: { modelName },
     openModal: { onOpen },
   } = useContext(MainContext);
 
-  const handleButtons = () => {
-    console.log('click');
+  const handleSetMainGood = needDelivery => {
+    dispatch(setMainGood({ good: modelName, delivery: needDelivery }));
     onOpen();
   };
 
   return (
     <BtnWrap>
-      <BuyButton onClick={handleButtons} data-button-buy="Оплата">
-        Купить
-      </BuyButton>
-      <MainButton onClick={handleButtons} data-button-buy="Доставка и оплата">
+      <BuyButton onClick={() => handleSetMainGood(false)}>Купить</BuyButton>
+      <MainButton onClick={() => handleSetMainGood(true)}>
         Купить с доставкой
       </MainButton>
     </BtnWrap>

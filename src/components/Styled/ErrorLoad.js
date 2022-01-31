@@ -1,5 +1,8 @@
-import styled from 'styled-components';
 import React from 'react';
+import styled from 'styled-components';
+import env from '../../env.json';
+
+const ErrorColor = env.colors;
 
 const Wrapper = styled.div`
   position: fixed;
@@ -10,7 +13,7 @@ const Wrapper = styled.div`
   background: rgba(0, 40, 120, 0.7);
   z-index: 1001;
   padding-top: 100px;
-  color: red;
+  color: ${ErrorColor};
   font-size: 30px;
   display: flex;
   flex-direction: column;
@@ -24,7 +27,6 @@ const Wrapper = styled.div`
 `;
 
 const ErrorLoad = ({ text }) => {
-  console.log('text: ', text);
   return (
     <Wrapper>
       <p>Sorry, nework error:</p>
