@@ -2,10 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import env from '../env.json';
 import { getGoodDb } from './getGoodDbSlice';
 
-const {
-  stepForShowCrossSell,
-  initialStates: { initCrossSellCount },
-} = env;
+const { stepForShowCrossSell } = env;
+const initCountStack = stepForShowCrossSell;
 
 const getGoodForShow = (arr, count) => arr.slice(0, count);
 
@@ -15,7 +13,7 @@ export const crossSellSlice = createSlice({
     crossSellDb: null,
     crossSell: null,
     goodForShow: null,
-    countStack: initCrossSellCount,
+    countStack: initCountStack,
   },
   reducers: {
     addGoodsToShow: state => {

@@ -1,11 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import env from '../env.json';
 
+const { getGoodUrl } = env.backend;
+const initStatus = null,
+  initError = null;
+
 export const getGoodDb = createAsyncThunk(
   'goodDb/getGoodDb',
   async function (_, { rejectWithValue }) {
     try {
-      const response = await fetch(env.backend.getGoodUrl);
+      const response = await fetch(getGoodUrl);
       if (!response) throw new Error('Server error');
       const result = await response.json();
       return result;
@@ -19,8 +23,8 @@ export const getGoodDbSlice = createSlice({
   name: 'goodDb',
   initialState: {
     goodDb: null,
-    status: null,
-    error: null,
+    status: initStatus,
+    error: initError,
     present: null,
     card: null,
     characteristics: null,

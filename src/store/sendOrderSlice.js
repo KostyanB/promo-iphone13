@@ -1,14 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import env from '../env.json';
 
-const {
-  backend: { sendOrderUrl },
-  initialStates: {
-    initStatus,
-    initError,
-    order: { initMainGood, initCrossOrder, initDelivery },
-  },
-} = env;
+const { sendOrderUrl } = env.backend;
+
+const initStatus = null,
+  initError = null,
+  initMainGood = '',
+  initCrossOrder = {},
+  initDelivery = null;
 
 export const sendOrder = createAsyncThunk(
   'order/sendOrder',
@@ -36,7 +35,6 @@ export const sendOrderSlice = createSlice({
     mainGood: initMainGood,
     crossOrder: initCrossOrder,
     delivery: initDelivery,
-    correctOrder: '',
     status: initStatus,
     error: initError,
   },
@@ -52,9 +50,6 @@ export const sendOrderSlice = createSlice({
     },
     delCrossGood: (state, action) => {
       delete state.crossOrder[action.payload];
-    },
-    setDelivery: (state, action) => {
-      state.delivery = action.payload;
     },
     clearError: state => {
       console.log('clear');
@@ -98,7 +93,6 @@ export const {
 export const selectMainGood = state => state.order.mainGood;
 export const selectCrossOrder = state => state.order.crossOrder;
 export const selectDelivery = state => state.order.delivery;
-export const selectCorrectOrder = state => state.order.correctOrder;
 export const selectError = state => state.order.error;
 export const selectStatus = state => state.order.status;
 
