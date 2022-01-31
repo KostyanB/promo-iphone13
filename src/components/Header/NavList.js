@@ -1,9 +1,7 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { NavContext } from '../Context';
-
 import env from '../../env.json';
-
 import NavItem from './NavItem';
 
 const {
@@ -11,28 +9,6 @@ const {
   transitionDuration,
 } = env;
 
-// const animationParam = `${transitionDuration} ease-in-out forwards`;
-
-// const openAnim = keyframes`
-//   from {
-//     -webkit-transform: translateY(-200%);
-//     transform: translateY(-200%);
-//   }
-//   to {
-//     -webkit-transform: translateY(0);
-//     transform: translateY(0);
-//   }
-// `;
-// const closeAnim = keyframes`
-//   from {
-//     -webkit-transform: translateY(0);
-//     transform: translateY(0);
-//   }
-//   to {
-//     -webkit-transform: translateY(-200%);
-//     transform: translateY(-200%);
-//   }
-// `;
 const List = styled.ul`
   display: flex;
   align-items: center;

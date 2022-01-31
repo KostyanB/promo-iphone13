@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { animated, config, useTransition } from 'react-spring';
 import { addCrossGood, delCrossGood } from '../../store/sendOrderSlice';

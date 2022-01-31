@@ -2,6 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectDelivery } from '../../store/sendOrderSlice';
+import env from '../../env.json';
+
+const {
+  mainColor,
+  inputs: { focusColor, validColor, novalidColor },
+  transitionDuration,
+} = env.colors;
 
 const Label = styled.label`
   display: flex;
@@ -13,17 +20,22 @@ const Label = styled.label`
     font-size: 14px;
     margin-right: 20px;
   }
-
-  &.hide {
-    display: none !important;
-    background-color: 'yellow';
-  }
 `;
 const Input = styled.input`
   flex-grow: 1;
   border-style: solid;
   border-width: 1px;
-  border-color: transparent transparent #000 transparent;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: ${mainColor};
+  background-clip: padding-box;
+  transition: border-bottom-color ${transitionDuration};
+
+  &:focus {
+    border-bottom-color: ${focusColor};
+    transition: border-bottom-color ${transitionDuration};
+  }
 `;
 
 const Inputs = () => {

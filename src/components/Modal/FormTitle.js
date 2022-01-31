@@ -1,13 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { MainContext } from '../Context';
-import { selectCard } from '../../store/getGoodDbSlice';
 import { useSelector } from 'react-redux';
-import {
-  selectMainGood,
-  selectCrossOrder,
-  selectDelivery,
-} from '../../store/sendOrderSlice';
+import { selectMainGood, selectCrossOrder } from '../../store/sendOrderSlice';
 
 const Title = styled.h3`
   font-size: 36px;

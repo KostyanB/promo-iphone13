@@ -1,8 +1,8 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { MainContext } from '../Context';
 import { useDispatch } from 'react-redux';
-import { setMainGood, setDelivery } from '../../store/sendOrderSlice';
+import { setMainGood } from '../../store/sendOrderSlice';
 
 import { MainButton, BuyButton } from '../Styled/Buttons';
 
@@ -24,7 +24,12 @@ const BuyButtons = () => {
   } = useContext(MainContext);
 
   const handleSetMainGood = needDelivery => {
-    dispatch(setMainGood({ good: modelName, delivery: needDelivery }));
+    dispatch(
+      setMainGood({
+        good: modelName,
+        delivery: needDelivery,
+      }),
+    );
     onOpen();
   };
 

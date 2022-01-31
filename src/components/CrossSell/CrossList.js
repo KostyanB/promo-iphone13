@@ -5,7 +5,7 @@ import { selectGoodForShow } from '../../store/crossSellSlice';
 import CrossItem from './CrossItem';
 
 import useMeasure from 'react-use-measure';
-import { animated, useSpring, config } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 
 const List = styled.ul`
   display: flex;

@@ -340,6 +340,11 @@ export const GlobalStyle = createGlobalStyle`
             background-color ${transitionDuration},
             border-color ${transitionDuration};
     }
+
+    :active, :hover, :focus {
+        outline: 0;
+        outline-offset: 0;
+    }
     /*
     * компенсация смещения блоков при анимированном роутинге
     * из-за одновременного рендеринга 2-х DOM-элементов

@@ -70,6 +70,7 @@ const Card = () => {
 
   const startModel = useMemo(() => Object.entries(models)[0][1], [models]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setCurrentModel(startModel, title), []);
 
   return (
@@ -81,11 +82,6 @@ const Card = () => {
         <ModelButtons />
         <Description>
           <DetailList />
-          {/* <ScrollLink
-            href="#characteristics"
-            name="Полные харакстеристики"
-            type="section-link"
-          /> */}
           <CardLink to="/main/characteristics">Полные харакстеристики</CardLink>
           <Footer />
         </Description>
