@@ -7,12 +7,24 @@ Pet-проект. Промо-лендинг iPhone13
 [Демо](https://iphone-promo.web.app/)
 
 - Приложение написано с нуля на ReactJS по реальному дизайн-макету.
-- Имитация загрузки базы данных фильмов с сервера.
-- Прелоадер загрузки, оповещение при ошибке сервера.
+- Полностью реализована промо-страница и выбор товара и отправка заказа.
+- Анимированный роутинг по страницам "главная - отзывы - правила доставки"ю
+- Адаптивный дизайн.
+- Загрузка базы данных товаров с сервера.
+- Базовые настройки приложения вынесены в файл.
+- Выбор модели пв карточке товара.
+- Анимированные "аккордеоны" просмотра характеристик.
+- Добавление Cross-sell товаров.
+- Анимированная подгрузка товаров.
+- Валидация полей ввода данных пользователя.
+- Кастомная маска поля ввода телефона.
+- Отключение скролла при открытии модального окна.
+- Прелоадер загрузки данных.
+- Оповещение пользователя об успешной отправке заказа или ошибке.
 
 ## Стек и технологии
 
-- ReactJS, Redux, Redux/Toolkit, React Hooks, Styled Components, Context Provider, [React Spring](https://react-spring.io), [react-media](https://www.npmjs.com/package/react-media), [react-scroll](https://www.npmjs.com/package/react-scroll), [seamless-scroll-polyfill](https://www.npmjs.com/package/seamless-scroll-polyfill) для поддержки скролла на Safari, Grid/Flex, RestAPI.
+- ReactJS, Redux, Redux/Toolkit, React Hooks, Styled Components, Context Provider, React Router, [React Spring](https://react-spring.io), [react-media](https://www.npmjs.com/package/react-media), [seamless-scroll-polyfill](https://www.npmjs.com/package/seamless-scroll-polyfill) для поддержки скролла на Safari, Grid/Flex, RestAPI.
 - Настройки приложения в файле `env.json`: стилевое оформление (цвета и шрифты), навигация.
 - Конфигурация позволяет получать полный объем данных о сеансах с сервера с минимальной доработкой приложения.
 - В приложении имитируется загрузка базы данных фильмов c сервера (фактически БД находится JSON-файлах в `public/db`).
