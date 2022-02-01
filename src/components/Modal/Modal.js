@@ -75,10 +75,7 @@ const Modal = () => {
   useEffect(() => (isOpen ? lockScroll() : unlockScroll()), [isOpen]);
 
   const closeModal = e => {
-    if (
-      e.target.id === 'modal-close-overlay' ||
-      e.target.id === 'modal-close-btn'
-    ) {
+    if (e.target.id === 'modal-overlay' || e.target.id === 'modal-close-btn') {
       onClose();
     }
   };
@@ -94,7 +91,7 @@ const Modal = () => {
   };
 
   return (
-    <Wrapper id="modal-close-overlay" open={isOpen} onClick={closeModal}>
+    <Wrapper id="modal-overlay" open={isOpen} onClick={closeModal}>
       <Content>
         <Close id="modal-close-btn" onClick={closeModal}>
           ✘

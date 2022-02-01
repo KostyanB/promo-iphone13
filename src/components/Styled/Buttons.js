@@ -32,9 +32,14 @@ const {
     buyBtnHoverBorder,
     buyBtnHoverText,
   },
+  disableBtnColors: { disBtnBack, disBtnBorder, disBtnText },
 } = env.colors;
 
-const Button = styled.button`
+const Button = styled.button.attrs(props => ({
+  disabled: props.disable,
+  type: props.type,
+  form: props.form,
+}))`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,6 +49,18 @@ const Button = styled.button`
   font-weight: bold;
   font-size: 18px;
   line-height: 32px;
+
+  &:disabled {
+    background-color: ${disBtnBack};
+    border: 1px solid ${disBtnBorder};
+    color: ${disBtnText};
+    &:hover,
+    &:active {
+      background-color: ${disBtnBack};
+      border: 1px solid ${disBtnBorder};
+      color: ${disBtnText};
+    }
+  }
 `;
 
 export const MainButton = styled(Button)`
