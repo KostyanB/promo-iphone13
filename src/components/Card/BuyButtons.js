@@ -4,7 +4,6 @@ import { MainContext } from '../Context';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMainGood } from '../../store/sendOrderSlice';
 import { selectCard } from '../../store/getGoodDbSlice';
-
 import { MainButton, BuyButton } from '../Styled/Buttons';
 
 const BtnWrap = styled.div`
