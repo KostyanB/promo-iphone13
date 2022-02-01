@@ -1,4 +1,4 @@
-# "Cinema-booker"
+# "iPhone13"
 
 Pet-проект. Промо-лендинг iPhone13
 
