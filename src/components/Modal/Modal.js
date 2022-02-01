@@ -74,22 +74,31 @@ const Modal = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => (isOpen ? lockScroll() : unlockScroll()), [isOpen]);
 
-  const closeModal = () => onClose();
+  const closeModal = e => {
+    if (
+      e.target.id === 'modal-close-overlay' ||
+      e.target.id === 'modal-close-btn'
+    ) {
+      onClose();
+    }
+  };
 
   const clearForm = () => {
     dispatch(clearOrder());
-    closeModal();
+    onClose();
   };
 
   const handleError = () => {
     dispatch(clearError());
-    closeModal();
+    onClose();
   };
 
   return (
-    <Wrapper open={isOpen}>
+    <Wrapper id="modal-close-overlay" open={isOpen} onClick={closeModal}>
       <Content>
-        <Close onClick={closeModal}>✘</Close>
+        <Close id="modal-close-btn" onClick={closeModal}>
+          ✘
+        </Close>
         <Subtitle>Доставка и оплата</Subtitle>
         {formStatus === 'loading' ? (
           <Preloader />
