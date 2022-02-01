@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectDelivery } from '../../store/sendOrderSlice';
+import useValidateInputs from '../../hooks/useValidateInputs';
 import env from '../../env.json';
+import maskPhone from '../../helpers/maskPhone';
 
 const {
-  mainColor,
-  inputs: { focusColor, validColor, novalidColor },
+  colors: {
+    mainColor,
+    inputs: { focusColor, validColor, novalidColor },
+  },
   transitionDuration,
-} = env.colors;
+  inputMasks: { phoneMask },
+} = env;
 
 const Label = styled.label`
   display: flex;
@@ -40,22 +45,65 @@ const Input = styled.input`
 
 const Inputs = () => {
   const delivery = useSelector(selectDelivery);
+  const phoneRef = useRef(null);
+  const addressRef = useRef(null);
+  const nameRef = useRef(null);
+
+  const inputRefs = useMemo(() => [phoneRef, addressRef, nameRef], []);
+
+  const { isValidInputs, isValidName, isValidAddress, isValidTel, validate } =
+    useValidateInputs();
+  console.log('***********');
+  console.log('isValidInputs: ', isValidInputs);
+  console.log('isValidName: ', isValidName);
+  console.log('isValidAddress: ', isValidAddress);
+  console.log('isValidTel: ', isValidTel);
+
+  useEffect(() => {
+    maskPhone(phoneRef.current, phoneMask);
+
+    inputRefs.map(input => validate(input.current));
+  }, []);
+
+  const handleValidate = e => {
+    validate(e.target);
+  };
 
   return (
     <>
       {delivery && (
         <Label>
           <span>Куда доставить</span>
-          <Input type="text" name="address" />
+          <Input
+            ref={addressRef}
+            type="text"
+            name="address"
+            onChange={handleValidate}
+            onBlur={handleValidate}
+          />
         </Label>
       )}
       <Label>
         <span>Кому</span>
-        <Input type="text" name="username" />
+        <Input
+          ref={nameRef}
+          type="text"
+          name="username"
+          onChange={handleValidate}
+          onBlur={handleValidate}
+        />
       </Label>
       <Label>
         <span>Телефон</span>
-        <Input type="text" name="phone" />
+        <Input
+          ref={phoneRef}
+          type="tel"
+          name="phone"
+          placeholder={phoneMask}
+          onChange={handleValidate}
+          onBlur={handleValidate}
+          onInput={handleValidate}
+        />
       </Label>
     </>
   );
