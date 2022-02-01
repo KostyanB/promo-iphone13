@@ -1,5 +1,5 @@
-const maskPhone = (elem, masked = '+7 (___) ___-__-__') => {
-  // const elems = document.querySelectorAll(selector);
+const maskPhone = (selector, masked = '+7 (___) ___-__-__') => {
+  const elems = document.querySelectorAll(selector);
   const template = masked;
 
   const createRegExp = value => {
@@ -49,10 +49,10 @@ const maskPhone = (elem, masked = '+7 (___) ___-__-__') => {
     this.value = checkBlur(this.value, event);
   };
 
-  // for (const elem of elems) {
-  elem.addEventListener('input', applyMask);
-  elem.addEventListener('focus', applyMask);
-  elem.addEventListener('blur', applyMask);
-  // }
+  for (const elem of elems) {
+    elem.addEventListener('input', applyMask);
+    elem.addEventListener('focus', applyMask);
+    elem.addEventListener('blur', applyMask);
+  }
 };
 export default maskPhone;

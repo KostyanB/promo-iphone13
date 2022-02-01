@@ -8,7 +8,9 @@ import {
   clearError,
   clearOrder,
 } from '../../store/sendOrderSlice';
+import { FormContextProvider } from '../Context';
 import useScrollLock from '../../hooks/useScrollLock';
+
 import env from '../../env.json';
 import Form from './Form';
 import Preloader from '../Styled/Preloader';
@@ -102,7 +104,9 @@ const Modal = () => {
             <MainButton onClick={handleError}>Закрыть</MainButton>
           </>
         ) : (
-          <Form />
+          <FormContextProvider>
+            <Form />
+          </FormContextProvider>
         )}
       </Content>
     </Wrapper>

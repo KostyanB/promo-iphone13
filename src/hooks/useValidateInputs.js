@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import env from '../env.json';
 
 const useValidateInputs = () => {
@@ -6,11 +6,17 @@ const useValidateInputs = () => {
   const [isValidInputs, setIsValidInputs] = useState(false);
   const [isValidName, setIsValidName] = useState(false);
   const [isValidAddress, setIsValidAddress] = useState(false);
-  const [isValidTel, setIsValidTel] = useState(false);
-  const errors = useMemo(() => new Set(), []);
+  const [isValidPhone, setIsValidPhone] = useState(false);
+  const [errObj, setErrObj] = useState({});
+
+  const setErrors = name => {
+    if (!errObj[name]) {
+      errObj[name] = name;
+    }
+  };
 
   const checkAllInputs = () => {
-    if (errors.size > 0) {
+    if (Object.keys(errObj).length > 0) {
       setIsValidInputs(false);
     } else {
       setIsValidInputs(true);
@@ -22,10 +28,10 @@ const useValidateInputs = () => {
     let check;
 
     if (!str || str.length < validLength) {
-      errors.add(name);
+      setErrors(name);
       check = false;
     } else {
-      errors.delete(name);
+      delete errObj[name];
       check = true;
     }
 
@@ -49,7 +55,7 @@ const useValidateInputs = () => {
 
     arr.map(sym => (num = num.replaceAll(sym, '')));
 
-    setIsValidTel(checkLelgth(num, name));
+    setIsValidPhone(checkLelgth(num, name));
   };
 
   const validate = input => {
@@ -65,8 +71,11 @@ const useValidateInputs = () => {
     isValidInputs,
     isValidName,
     isValidAddress,
-    isValidTel,
+    isValidPhone,
     validate,
+    setErrors,
+    errObj,
+    setErrObj,
   };
 };
 export default useValidateInputs;

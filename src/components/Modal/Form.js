@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCrossOrder, sendOrder } from '../../store/sendOrderSlice';
+import { FormContext } from '../Context';
 
 import FormTitle from './FormTitle';
 import HiddenInputs from './HiddenInputs';
@@ -12,11 +13,17 @@ const Form = () => {
   const dispatch = useDispatch();
   const crossOrder = useSelector(selectCrossOrder);
   const emptyCross = !Object.keys(crossOrder).length;
+  const {
+    validateInputs: { isValidInputs },
+  } = useContext(FormContext);
+  console.log('isValidInputs: ', isValidInputs);
 
   const handleSubmit = e => {
     e.preventDefault();
-    const data = new FormData(formRef.current);
-    dispatch(sendOrder(data));
+    if (isValidInputs) {
+      const data = new FormData(formRef.current);
+      dispatch(sendOrder(data));
+    }
   };
 
   return (
@@ -24,7 +31,7 @@ const Form = () => {
       <HiddenInputs notEmptyCross={!emptyCross} />
       <FormTitle notEmptyCross={!emptyCross} />
       <Inputs />
-      <SubmitButton />
+      <SubmitButton disable={!isValidInputs} />
     </form>
   );
 };
