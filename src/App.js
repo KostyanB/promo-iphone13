@@ -1,7 +1,6 @@
 import React, { useEffect, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ContextProvider } from './components/Context';
 import { getGoodDb, selectError, selectStatus } from './store/getGoodDbSlice';
 
 import { GlobalStyle } from './components/Styled/GlobalStyle';
@@ -21,13 +20,11 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <ContextProvider>
-        <Router>
-          <Suspense fallback={<Preloader top={150} />}>
-            {status === 'success' && <AnimatedRoutes />}
-          </Suspense>
-        </Router>
-      </ContextProvider>
+      <Router>
+        <Suspense fallback={<Preloader top={150} />}>
+          {status === 'success' && <AnimatedRoutes />}
+        </Suspense>
+      </Router>
       {error && <ErrorLoad text={error} />}
     </>
   );

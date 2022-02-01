@@ -29,7 +29,6 @@ const Main = () => {
   );
 
   useEffect(() => {
-    // const id = location.hash.substring(1);
     const target = location.pathname.split('/')[2];
     const section = refs[target]?.current;
     section && scrollToSection(section);

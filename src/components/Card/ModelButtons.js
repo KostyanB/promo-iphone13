@@ -34,13 +34,13 @@ const Button = styled.button`
 `;
 
 const ModelButtons = () => {
-  const { models, title } = useSelector(selectCard);
+  const { models } = useSelector(selectCard);
 
   const {
     currentModel: { currentColor, setCurrentModel },
   } = useContext(MainContext);
 
-  const handleCurrentModel = model => setCurrentModel(models[model], title);
+  const handleCurrentModel = model => setCurrentModel(models[model]);
 
   const checkActive = model => model.color === currentColor;
 

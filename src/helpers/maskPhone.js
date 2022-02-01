@@ -33,7 +33,7 @@ const maskPhone = (selector, masked = '+7 (___) ___-__-__') => {
     );
   };
 
-  const applyMask = function (event) {
+  const runMask = function (event) {
     const keyCode = event.keyCode;
     let index = 0;
 
@@ -50,9 +50,9 @@ const maskPhone = (selector, masked = '+7 (___) ___-__-__') => {
   };
 
   for (const elem of elems) {
-    elem.addEventListener('input', applyMask);
-    elem.addEventListener('focus', applyMask);
-    elem.addEventListener('blur', applyMask);
+    elem.addEventListener('input', runMask);
+    elem.addEventListener('focus', runMask);
+    elem.addEventListener('blur', runMask);
   }
 };
 export default maskPhone;

@@ -50,6 +50,7 @@ const FormInput = ({ name, type, placeholder, isValid }) => {
     }
 
     setErrors(name);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type, name]);
 
   const handleValidate = e => {

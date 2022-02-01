@@ -16,7 +16,6 @@ const Form = () => {
   const {
     validateInputs: { isValidInputs },
   } = useContext(FormContext);
-  console.log('isValidInputs: ', isValidInputs);
 
   const handleSubmit = e => {
     e.preventDefault();

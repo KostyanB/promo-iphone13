@@ -1,10 +1,9 @@
-import React, { useContext, useLayoutEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Context, NavContextProvider } from '../Context';
+import { NavContextProvider } from '../Context';
 import { Outlet } from 'react-router-dom';
 import env from '../../env.json';
 
-// import Container from '../Styled/Container';
 import NavList from './NavList';
 import BurgerButton from './BurgerButton';
 import { LogoIcon } from '../Styled/Icons/Icons';
@@ -45,28 +44,20 @@ const Nav = styled.nav`
   }
 `;
 
-const Header = () => {
-  const {
-    scrollOffset: { setOffset },
-  } = useContext(Context);
-
-  useLayoutEffect(() => setOffset());
-
-  return (
-    <>
-      <HeaderWrapper>
-        <NavContainer>
-          <Nav>
-            <LogoIcon width={34} height={40} />
-            <NavContextProvider>
-              <NavList />
-              <BurgerButton />
-            </NavContextProvider>
-          </Nav>
-        </NavContainer>
-      </HeaderWrapper>
-      <Outlet />
-    </>
-  );
-};
+const Header = () => (
+  <>
+    <HeaderWrapper>
+      <NavContainer>
+        <Nav>
+          <LogoIcon width={34} height={40} />
+          <NavContextProvider>
+            <NavList />
+            <BurgerButton />
+          </NavContextProvider>
+        </Nav>
+      </NavContainer>
+    </HeaderWrapper>
+    <Outlet />
+  </>
+);
 export default Header;

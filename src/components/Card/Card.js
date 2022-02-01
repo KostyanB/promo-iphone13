@@ -63,7 +63,7 @@ const CardLink = styled(NavLink)`
 `;
 
 const Card = () => {
-  const { models, title } = useSelector(selectCard);
+  const { models } = useSelector(selectCard);
   const {
     currentModel: { setCurrentModel },
   } = useContext(MainContext);
@@ -71,11 +71,10 @@ const Card = () => {
   const startModel = useMemo(() => Object.entries(models)[0][1], [models]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => setCurrentModel(startModel, title), []);
+  useEffect(() => setCurrentModel(startModel), []);
 
   return (
     <Wrapper>
-      {/* <CardContext.Provider value={{ currentModel }}> */}
       <CardImage />
       <Details>
         <Title />
@@ -86,7 +85,6 @@ const Card = () => {
           <Footer />
         </Description>
       </Details>
-      {/* </CardContext.Provider> */}
     </Wrapper>
   );
 };

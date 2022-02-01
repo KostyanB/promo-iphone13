@@ -7,8 +7,10 @@ const useOpenModal = () => {
 
   const onClose = () => setIsOpen(false);
 
-  const onToggle = () => setIsOpen(!isOpen);
-
-  return { onOpen, onClose, isOpen, onToggle };
+  return {
+    onOpen,
+    onClose,
+    isOpen,
+  };
 };
 export default useOpenModal;
