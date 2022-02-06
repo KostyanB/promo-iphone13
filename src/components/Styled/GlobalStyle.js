@@ -1,7 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 import env from '../../env.json';
 
-const { transitionDuration } = env;
+const {
+    transitionDuration,
+    colors: {
+        hoverColor,
+        backgroundColor
+    }
+} = env;
 
 export const GlobalStyle = createGlobalStyle`
     /* fonts */
@@ -40,6 +46,8 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         -webkit-box-sizing: border-box;
             box-sizing: border-box;
+        /* fix place for scroll */
+        scrollbar-gutter: stable;
     }
 
         /* Document */
@@ -70,6 +78,17 @@ export const GlobalStyle = createGlobalStyle`
         line-height: 1;
         color: black;
         overflow-x: hidden;
+
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: ${backgroundColor};
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: ${hoverColor};
+        border-radius: 100px;
     }
 
     main {
@@ -321,6 +340,7 @@ export const GlobalStyle = createGlobalStyle`
     img {
         max-width: 100%;
         height: auto;
+        object-fit: cover;
     }
 
     .visually-hidden {

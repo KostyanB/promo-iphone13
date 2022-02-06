@@ -20,16 +20,21 @@ import { MainButton } from '../Styled/Buttons';
 const { hoverColor, mainColor } = env.colors;
 
 const Wrapper = styled.div`
-  display: flex;
-  visibility: ${props => (props.open ? 'visible' : 'hidden')};
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  justify-content: center;
+  display: flex;
+  /* justify-content: center; */
+  justify-content: flex-start;
   align-items: center;
+  flex-flow: column nowrap;
+  flex-shrink:0;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0;
   background-color: rgba(0, 0, 0, 0.4);
+  visibility: ${props => (props.open ? 'visible' : 'hidden')};
 
   & > div {
     transform: ${props => (props.open ? 'scale(1, 1)' : 'scale(0, 0)')};
@@ -39,10 +44,17 @@ const Wrapper = styled.div`
 const Content = styled.div`
   position: relative;
   width: min(90vw, 640px);
+  margin: auto;
   padding: 20px;
+  overscroll-behavior-y: contain;
+  overflow-y: auto;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
 `;
 const Close = styled.button`
   position: absolute;
