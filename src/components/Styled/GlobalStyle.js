@@ -2,11 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import env from '../../env.json';
 
 const {
-    transitionDuration,
-    colors: {
-        hoverColor,
-        backgroundColor
-    }
+  transitionDuration,
+  colors: { hoverColor, backgroundColor },
 } = env;
 
 export const GlobalStyle = createGlobalStyle`
@@ -338,9 +335,10 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     img {
-        max-width: 100%;
+        width: 100%;
         height: auto;
         object-fit: cover;
+        /* aspect-ratio: attr(width) / attr(height); */
     }
 
     .visually-hidden {

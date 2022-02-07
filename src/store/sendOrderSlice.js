@@ -7,8 +7,7 @@ const initStatus = null,
   initError = null,
   initMainGood = '',
   initCrossOrder = {},
-  initDelivery = false,
-  initTotal = 0;
+  initDelivery = false;
 
 export const sendOrder = createAsyncThunk(
   'order/sendOrder',

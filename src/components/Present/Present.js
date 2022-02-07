@@ -24,6 +24,10 @@ const Description = styled.p`
 const Figure = styled.figure`
   max-width: min(40vw, 440px);
   margin: 0 auto;
+
+  & > img {
+    aspect-ratio: 187 / 380;
+  }
 `;
 
 const Present = () => {

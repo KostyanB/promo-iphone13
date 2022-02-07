@@ -15,9 +15,11 @@ const CardImg = styled.figure`
   }
 
   & > img {
-    width: 230px;
-    max-width: none;
     grid-area: 1/-1;
+    width: 230px;
+    height: auto;
+    aspect-ratio: 23/29;
+    max-width: none;
   }
 `;
 

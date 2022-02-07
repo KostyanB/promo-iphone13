@@ -2,7 +2,7 @@
   "present": {
     "title": "Смартфон Apple iPhone 13 Pro 128GB Graphite",
     "promo": "Грандиозный апгрейд камер Pro. Режим «Киноэффект» делает из видео настоящее кино. Дисплей Super Retina XDR с технологией ProMotion для более быстрого и плавного взаимодействия. А15 Bionic — самый быстрый чип для iPhone. Прочный корпус и огромный прирост ресурса аккумулятора.",
-    "imgSrc": "../../db/present/iPhone-main.png",
+    "imgSrc": "../../db/present/iPhone-main.webp",
     "imgAlt": "iPhone13"
   },
   "card": {
@@ -155,79 +155,79 @@
     {
       "id": "10024343b",
       "name": "Умная колонка с Алисой Яндекс.Станция черная",
-      "photo": "../../db/cross-sell/10024343b.jpg",
+      "photo": "../../db/cross-sell/10024343b.webp",
       "price": "12990"
     },
     {
       "id": "30052979b",
       "name": "Смарт-часы Apple Watch S6 44mm Space Gray Aluminum Case with Black Sport Band",
-      "photo": "../../db/cross-sell/30052979b.jpg",
+      "photo": "../../db/cross-sell/30052979b.webp",
       "price": "39490"
     },
     {
       "id": "50047745b",
       "name": "Наушники Apple EarPods with Lightning Connector",
-      "photo": "../../db/cross-sell/50047745b.jpg",
+      "photo": "../../db/cross-sell/50047745b.webp",
       "price": "1990"
     },
     {
       "id": "50051752b",
       "name": "Флеш-диск для Apple Leef iBridge3 64 Гб, серебристый",
-      "photo": "../../db/cross-sell/50051752b.jpg",
+      "photo": "../../db/cross-sell/50051752b.webp",
       "price": "7190"
     },
     {
       "id": "50126638b",
       "name": "Наушники Apple AirPods w/Charging Case",
-      "photo": "../../db/cross-sell/50126638b.jpg",
+      "photo": "../../db/cross-sell/50126638b.webp",
       "price": "12990"
     },
     {
       "id": "50131681b",
       "name": "Кабель для iPod, iPhone, iPad Apple USB-C to Lightning Cable 1 m",
-      "photo": "../../db/cross-sell/50131681b.jpg",
+      "photo": "../../db/cross-sell/50131681b.webp",
       "price": "1790"
     },
     {
       "id": "50132022b",
       "name": "Беспроводное зарядное устройство InterStep QI",
-      "photo": "../../db/cross-sell/50132022b.jpg",
+      "photo": "../../db/cross-sell/50132022b.webp",
       "price": "1990"
     },
     {
       "id": "50133735b",
       "name": "Внешний аккумулятор TFN Pocket PD PB-216",
-      "photo": "../../db/cross-sell/50133735b.jpg",
+      "photo": "../../db/cross-sell/50133735b.webp",
       "price": "1790"
     },
     {
       "id": "50135795b",
       "name": "Автомобильное зарядное устройство TFN Rapid+",
-      "photo": "../../db/cross-sell/50135795b.jpg",
+      "photo": "../../db/cross-sell/50135795b.webp",
       "price": "990"
     },
     {
       "id": "50143532b",
       "name": "Защитное стекло InterStep iPhone 12/12 Pro",
-      "photo": "../../db/cross-sell/50143532b.jpg",
+      "photo": "../../db/cross-sell/50143532b.webp",
       "price": "990"
     },
     {
       "id": "50144492b",
       "name": "Сетевое зарядное устройство Anker PowerPort 3 Nano 20W USB-C White",
-      "photo": "../../db/cross-sell/50144492b.jpg",
+      "photo": "../../db/cross-sell/50144492b.webp",
       "price": "1590"
     },
     {
       "id": "50144562b",
       "name": "Чехол Apple iPhone 12 / 12 Pro Silicone MagSafe Black",
-      "photo": "../../db/cross-sell/50144562b.jpg",
+      "photo": "../../db/cross-sell/50144562b.webp",
       "price": "4990"
     },
     {
       "id": "50144578b",
       "name": "БЗУ Apple MagSafe Charger",
-      "photo": "../../db/cross-sell/50144578b.jpg",
+      "photo": "../../db/cross-sell/50144578b.webp",
       "price": "3990"
     }
   ]

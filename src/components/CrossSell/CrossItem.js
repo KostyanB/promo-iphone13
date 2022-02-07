@@ -17,6 +17,9 @@ const Item = styled.article`
   & > img {
     box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
     margin-bottom: 12px;
+    width: 200px;
+    height: auto;
+    aspect-ratio: 1/1;
   }
 
   & > p {
