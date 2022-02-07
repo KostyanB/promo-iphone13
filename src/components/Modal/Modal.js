@@ -12,7 +12,7 @@ import { FormContextProvider } from '../Context';
 import useScrollLock from '../../hooks/useScrollLock';
 
 import env from '../../env.json';
-import Form from './Form';
+import Form from '../Form';
 import Preloader from '../Styled/Preloader';
 import ModalMessage from './ModalMessage';
 import { MainButton } from '../Styled/Buttons';

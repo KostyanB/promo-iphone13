@@ -47,7 +47,7 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-box-sizing: border-box;
             box-sizing: border-box;
         /* fix place for scroll */
-        scrollbar-gutter: stable;
+        /* scrollbar-gutter: stable; */
     }
 
         /* Document */
