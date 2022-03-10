@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { FormContext } from '../Context';
+import { useValidateFormContext } from '../../context';
 import env from '../../env.json';
 import maskPhone from '../../helpers/maskPhone';
 
@@ -40,8 +40,8 @@ const Input = styled.input`
 const FormInput = ({ name, type, placeholder, isValid }) => {
   const [checked, setChecked] = useState(false);
   const {
-    validateInputs: { setErrors, validate },
-  } = useContext(FormContext);
+    validateForm: { setErrors, validate },
+  } = useValidateFormContext();
 
   useEffect(() => {
     if (type === 'tel') {

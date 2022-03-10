@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectMainGood, selectCrossOrder } from '../../store/sendOrderSlice';
 import { selectCrossSell } from '../../store/crossSellSlice';
-import { MainContext } from '../Context';
+import { useSelectedModelContext } from '../../context';
 
 const Title = styled.h3`
   font-size: 36px;
@@ -31,16 +31,16 @@ const FormTitle = ({ notEmptyCross }) => {
   const crossOrder = useSelector(selectCrossOrder);
   const crossSell = useSelector(selectCrossSell);
   const {
-    currentModel: { currentPrice },
-  } = useContext(MainContext);
+    selectedModel: { selectedPrice },
+  } = useSelectedModelContext();
 
   const calcTotal = useCallback(() => {
     const crossTotal = Object.keys(crossOrder).reduce(
       (acc, id) => (acc += +crossSell[id].price),
       0,
     );
-    return crossTotal + +currentPrice;
-  }, [crossOrder, crossSell, currentPrice]);
+    return crossTotal + +selectedPrice;
+  }, [crossOrder, crossSell, selectedPrice]);
 
   useEffect(() => {
     setTotal(calcTotal());

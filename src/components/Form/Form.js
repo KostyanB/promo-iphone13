@@ -1,7 +1,7 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCrossOrder, sendOrder } from '../../store/sendOrderSlice';
-import { FormContext } from '../Context';
+import { useValidateFormContext } from '../../context';
 
 import FormTitle from './FormTitle';
 import HiddenInputs from './HiddenInputs';
@@ -14,8 +14,8 @@ const Form = () => {
   const crossOrder = useSelector(selectCrossOrder);
   const emptyCross = !Object.keys(crossOrder).length;
   const {
-    validateInputs: { isValidInputs },
-  } = useContext(FormContext);
+    validateForm: { isValidInputs },
+  } = useValidateFormContext();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const Form = () => {
   };
 
   return (
-    <form id="modal-form" ref={formRef} onSubmit={handleSubmit}>
+    <form id='modal-form' ref={formRef} onSubmit={handleSubmit}>
       <HiddenInputs notEmptyCross={!emptyCross} />
       <FormTitle notEmptyCross={!emptyCross} />
       <Inputs />

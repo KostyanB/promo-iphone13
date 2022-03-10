@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
-import { NavContext } from '../Context';
+import React from 'react';
+import { useNavContext } from '../../context';
 import RouteLink from './RouteLink';
 
 const NavItem = ({ href, name }) => {
-  const {
-    falloutNav: { closeNav },
-  } = useContext(NavContext);
+  const { closeNav } = useNavContext();
 
   return (
     <li>

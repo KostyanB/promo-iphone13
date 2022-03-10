@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavContextProvider } from '../Context';
+import { NavContextProvider } from '../../context';
 import { Outlet } from 'react-router-dom';
 import env from '../../env.json';
 

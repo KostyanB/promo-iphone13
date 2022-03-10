@@ -10,33 +10,37 @@ export const GlobalStyle = createGlobalStyle`
     /* fonts */
     @font-face {
         font-family: 'San Francisco';
-        font-weight: 400;
         src: url('../fonts/SFProDisplay-Regular.woff2') format('woff2'),
             url('../fonts/SFProDisplay-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
         font-display: swap;
     }
 
     @font-face {
         font-family: 'San Francisco';
-        font-weight: 300;
         src: url('../fonts/SFProDisplay-Thin.woff2') format('woff2'),
             url('../fonts/SFProDisplay-Thin.woff') format('woff');
+        font-weight: 300;
+        font-style: normal;
         font-display: swap;
     }
 
     @font-face {
         font-family: 'San Francisco';
-        font-weight: 600;
         src: url('../fonts/SFProDisplay-Semibold.woff2') format('woff2'),
             url('../fonts/SFProDisplay-Semibold.woff') format('woff');
+        font-weight: 600;
+        font-style: normal;
         font-display: swap;
     }
 
     @font-face {
         font-family: 'San Francisco';
-        font-weight: 700;
         src: url('../fonts/SFProDisplay-Bold.woff2') format('woff2'),
             url('../fonts/SFProDisplay-Bold.woff') format('woff');
+        font-weight: 700;
+        font-style: normal;
         font-display: swap;
     }
     /* reset styles */

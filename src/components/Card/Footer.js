@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { MainContext } from '../Context';
+import { useSelectedModelContext } from '../../context';
 import BuyButtons from './BuyButtons';
 
 const Wrapper = styled.div`
@@ -26,12 +26,12 @@ const Price = styled.p`
 
 const Footer = () => {
   const {
-    currentModel: { currentPrice },
-  } = useContext(MainContext);
+    selectedModel: { selectedPrice },
+  } = useSelectedModelContext();
 
   return (
     <Wrapper>
-      <Price>{currentPrice}&#8381;</Price>
+      <Price>{selectedPrice}&#8381;</Price>
       <BuyButtons />
     </Wrapper>
   );

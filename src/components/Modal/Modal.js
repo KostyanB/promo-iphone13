@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { MainContext } from '../Context';
+import { ValidateFormContextProvider, useModalContext } from '../../context';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectError,
@@ -8,7 +8,6 @@ import {
   clearError,
   clearOrder,
 } from '../../store/sendOrderSlice';
-import { FormContextProvider } from '../Context';
 import useScrollLock from '../../hooks/useScrollLock';
 
 import env from '../../env.json';
@@ -30,7 +29,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-flow: column nowrap;
-  flex-shrink:0;
+  flex-shrink: 0;
   -webkit-overflow-scrolling: touch;
   padding: 10px 0;
   background-color: rgba(0, 0, 0, 0.4);
@@ -76,36 +75,35 @@ const Subtitle = styled.h2`
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const {
-    openModal: { isOpen, onClose },
-  } = useContext(MainContext);
+  const { isOpenModal, onCloseModal } = useModalContext();
+
   const formError = useSelector(selectError);
   const formStatus = useSelector(selectStatus);
   const { lockScroll, unlockScroll } = useScrollLock();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => (isOpen ? lockScroll() : unlockScroll()), [isOpen]);
+  useEffect(() => (isOpenModal ? lockScroll() : unlockScroll()), [isOpenModal]);
 
   const closeModal = e => {
     if (e.target.id === 'modal-overlay' || e.target.id === 'modal-close-btn') {
-      onClose();
+      onCloseModal();
     }
   };
 
   const clearForm = () => {
     dispatch(clearOrder());
-    onClose();
+    onCloseModal();
   };
 
   const handleError = () => {
     dispatch(clearError());
-    onClose();
+    onCloseModal();
   };
 
   return (
-    <Wrapper id="modal-overlay" open={isOpen} onClick={closeModal}>
+    <Wrapper id='modal-overlay' open={isOpenModal} onClick={closeModal}>
       <Content>
-        <Close id="modal-close-btn" onClick={closeModal}>
+        <Close id='modal-close-btn' onClick={closeModal}>
           ✘
         </Close>
         <Subtitle>Доставка и оплата</Subtitle>
@@ -122,9 +120,9 @@ const Modal = () => {
             <MainButton onClick={handleError}>Закрыть</MainButton>
           </>
         ) : (
-          <FormContextProvider>
+          <ValidateFormContextProvider>
             <Form />
-          </FormContextProvider>
+          </ValidateFormContextProvider>
         )}
       </Content>
     </Wrapper>

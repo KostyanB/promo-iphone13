@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Media from 'react-media';
-import { NavContext } from '../Context';
+import { useNavContext } from '../../context';
 
 import env from '../../env.json';
 
@@ -19,9 +19,7 @@ const Burger = styled.button`
 `;
 
 const BurgerButton = () => {
-  const {
-    falloutNav: { toggleNav, closeNav },
-  } = useContext(NavContext);
+  const { toggleNav, closeNav } = useNavContext();
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -47,7 +45,7 @@ const BurgerButton = () => {
           matches.noBurger && hideBurger();
         }}
       />
-      <Burger isVisible={isVisible} onClick={toggleNav} id="burger">
+      <Burger isVisible={isVisible} onClick={toggleNav} id='burger'>
         <MenuIcon width={40} height={34} />
       </Burger>
     </>

@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import { MainContext } from '../Context';
+import { useSelectedModelContext } from '../../context';
 import { selectCard } from '../../store/getGoodDbSlice';
 import env from '../../env.json';
 
@@ -37,12 +37,12 @@ const ModelButtons = () => {
   const { models } = useSelector(selectCard);
 
   const {
-    currentModel: { currentColor, setCurrentModel },
-  } = useContext(MainContext);
+    selectedModel: { selectedColor, setSelectedModel },
+  } = useSelectedModelContext();
 
-  const handleCurrentModel = model => setCurrentModel(models[model]);
+  const handleselectedModel = model => setSelectedModel(models[model]);
 
-  const checkActive = model => model.color === currentColor;
+  const checkActive = model => model.color === selectedColor;
 
   return (
     <Buttons>
@@ -50,8 +50,9 @@ const ModelButtons = () => {
         <li key={index}>
           <Button
             isActive={checkActive(data)}
-            className="active"
-            onClick={() => handleCurrentModel(id)}>
+            className='active'
+            onClick={() => handleselectedModel(id)}
+          >
             {data.name}
           </Button>
         </li>

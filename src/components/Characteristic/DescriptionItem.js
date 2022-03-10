@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { MainContext } from '../Context';
+import { useSelectedModelContext } from '../../context';
 
 const Li = styled.li`
   display: flex;
@@ -19,10 +19,10 @@ const Li = styled.li`
 
 const DescriptionItem = ({ data }) => {
   const {
-    currentModel: { currentMemory },
-  } = useContext(MainContext);
+    selectedModel: { selectedMemory },
+  } = useSelectedModelContext();
 
-  const value = data[0] === 'Встроенная память (Гб)' ? currentMemory : data[1];
+  const value = data[0] === 'Встроенная память (Гб)' ? selectedMemory : data[1];
 
   return (
     <Li>

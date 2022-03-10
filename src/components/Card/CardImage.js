@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectPresent } from '../../store/getGoodDbSlice';
 import { animated, useTransition, config } from 'react-spring';
-import { MainContext } from '../Context';
+import { useSelectedModelContext } from '../../context';
 
 const CardImg = styled.figure`
   max-width: 300px;
@@ -38,14 +38,14 @@ const AnimateImg = ({ img, text }) => {
 
 const CardImage = () => {
   const {
-    currentModel: { currentImg },
-  } = useContext(MainContext);
+    selectedModel: { selectedImg },
+  } = useSelectedModelContext();
 
   const altText = useSelector(selectPresent).imgAlt;
 
   return (
     <CardImg>
-      <AnimateImg img={currentImg} text={altText} />
+      <AnimateImg img={selectedImg} text={altText} />
     </CardImg>
   );
 };

@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { MainContext } from '../Context';
+import { useSelectedModelContext, useModalContext } from '../../context';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMainGood } from '../../store/sendOrderSlice';
 import { selectCard } from '../../store/getGoodDbSlice';
@@ -19,19 +19,19 @@ const BuyButtons = () => {
   const dispatch = useDispatch();
   const { title } = useSelector(selectCard);
   const {
-    currentModel: { currentColor, currentMemory },
-    openModal: { onOpen },
-  } = useContext(MainContext);
+    selectedModel: { selectedColor, selectedMemory },
+  } = useSelectedModelContext();
+  const { onOpenModal } = useModalContext();
 
   const handleSetMainGood = needDelivery => {
-    const model = `${title}${currentMemory}GB ${currentColor}`;
+    const model = `${title}${selectedMemory}GB ${selectedColor}`;
     dispatch(
       setMainGood({
         good: model,
         delivery: needDelivery,
       }),
     );
-    onOpen();
+    onOpenModal();
   };
 
   return (

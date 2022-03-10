@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectDelivery } from '../../store/sendOrderSlice';
-import { FormContext } from '../Context';
+import { useValidateFormContext } from '../../context';
 
 import env from '../../env.json';
 import FormInput from './FormInput';
@@ -27,26 +27,26 @@ const Inputs = () => {
   const delivery = useSelector(selectDelivery);
 
   const {
-    validateInputs: { isValidName, isValidAddress, isValidPhone },
-  } = useContext(FormContext);
+    validateForm: { isValidName, isValidAddress, isValidPhone },
+  } = useValidateFormContext();
 
   return (
     <>
       {delivery && (
         <Label>
           <span>Куда доставить</span>
-          <FormInput type="text" name="address" isValid={isValidAddress} />
+          <FormInput type='text' name='address' isValid={isValidAddress} />
         </Label>
       )}
       <Label>
         <span>Кому</span>
-        <FormInput type="text" name="username" isValid={isValidName} />
+        <FormInput type='text' name='username' isValid={isValidName} />
       </Label>
       <Label>
         <span>Телефон</span>
         <FormInput
-          type="tel"
-          name="phone"
+          type='tel'
+          name='phone'
           placeholder={phoneMask}
           isValid={isValidPhone}
         />

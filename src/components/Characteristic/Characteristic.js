@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { useSelector } from 'react-redux';
 import { selectCharacteristics } from '../../store/getGoodDbSlice';
-
+import Section from '../Styled/Section';
 import Container from '../Styled/Container';
 import { SectionTitle } from '../Styled/Titles';
 import Item from './Item';
@@ -16,14 +16,16 @@ const Characteristic = () => {
   const data = useSelector(selectCharacteristics);
 
   return (
-    <Container>
-      <SectionTitle>Характеристики</SectionTitle>
-      <List>
-        {Object.entries(data).map(([name, data]) => (
-          <Item key={name} name={name} title={data.title} />
-        ))}
-      </List>
-    </Container>
+    <Section id='characteristics'>
+      <Container>
+        <SectionTitle>Характеристики</SectionTitle>
+        <List>
+          {Object.entries(data).map(([name, data]) => (
+            <Item key={name} name={name} title={data.title} />
+          ))}
+        </List>
+      </Container>
+    </Section>
   );
 };
 export default Characteristic;

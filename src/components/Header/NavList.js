@@ -1,6 +1,6 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { NavContext } from '../Context';
+import { useNavContext } from '../../context';
 import env from '../../env.json';
 import NavItem from './NavItem';
 
@@ -38,9 +38,7 @@ const List = styled.ul`
 `;
 
 const NavList = () => {
-  const {
-    falloutNav: { isOpenNav, closeNav },
-  } = useContext(NavContext);
+  const { isOpenNav, closeNav } = useNavContext();
 
   // закрытие по клику мимо меню
   const rootEl = useRef(null);
@@ -59,7 +57,7 @@ const NavList = () => {
   }, [rootEl, closeNav]);
 
   return (
-    <List id="burgerNav" className={isOpenNav ? 'isOpen' : ''}>
+    <List id='burgerNav' className={isOpenNav ? 'isOpen' : ''}>
       {env.nav.map((item, i) => (
         <NavItem key={i} href={item[0]} name={item[1]} />
       ))}

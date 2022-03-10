@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import env from '../env.json';
 
-const useValidateInputs = () => {
+const useValidateForm = () => {
   const { validLengths, phoneMask } = env.inputMasks;
   const [isValidInputs, setIsValidInputs] = useState(false);
   const [isValidName, setIsValidName] = useState(false);
@@ -47,15 +47,17 @@ const useValidateInputs = () => {
     if (name === 'username') setIsValidName(check);
     if (name === 'address') setIsValidAddress(check);
   };
+  const getPrefix = str => str.split('(')[0].trim();
 
   const validateTel = (value, name) => {
-    const prefix = phoneMask.split(' ')[0];
-    const arr = [prefix, '(', ')', ' ', '-'];
-    let num = value;
+    const maskPrefix = getPrefix(phoneMask);
+    const inputPrefix = getPrefix(value);
 
+    let num = value;
+    const arr = [maskPrefix, '(', ')', ' ', '-'];
     arr.map(sym => (num = num.replaceAll(sym, '')));
 
-    setIsValidPhone(checkLelgth(num, name));
+    maskPrefix === inputPrefix && setIsValidPhone(checkLelgth(num, name));
   };
 
   const validate = input => {
@@ -78,4 +80,4 @@ const useValidateInputs = () => {
     setErrObj,
   };
 };
-export default useValidateInputs;
+export default useValidateForm;

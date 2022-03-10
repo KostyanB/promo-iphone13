@@ -51,7 +51,7 @@ const CrossItem = ({ data }) => {
   return (
     <li>
       <Item>
-        <animated.img style={props} src={photo} alt={id} />
+        <animated.img style={props} src={photo} alt={id} loading="lazy"/>
         <Title>{name}</Title>
         <p>{price}&#8381;</p>
         <div>
