@@ -1,11 +1,13 @@
-import React, { useEffect, lazy } from 'react';
+import React, { useEffect, lazy, useRef, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   SelectedModelContextProvider,
   ModalContextProvider,
 } from '../../context';
-import scrollToSection from '../../helpers/scrollToSection';
+// seamless-polifill for Safari support
+import { elementScrollIntoView } from 'seamless-scroll-polyfill';
 
+import Section from '../Styled/Section';
 import Present from '../Present';
 import Modal from '../Modal';
 
@@ -15,20 +17,48 @@ const CrossSell = lazy(() => import('../CrossSell'));
 
 const Main = () => {
   const location = useLocation();
+  const presentRef = useRef(null);
+  const cardRef = useRef(null);
+  const characteristicsRef = useRef(null);
+  const crossSellRef = useRef(null);
+
+  const refs = useMemo(
+    () => ({
+      present: presentRef,
+      card: cardRef,
+      characteristics: characteristicsRef,
+      crossSell: crossSellRef,
+    }),
+    [presentRef, cardRef, characteristicsRef, crossSellRef],
+  );
 
   useEffect(() => {
-    const targetId = location.pathname.split('/')[2];
-    targetId && scrollToSection(targetId);
-  }, [location]);
+    const target = location.pathname.split('/')[2];
+    const section = refs[target]?.current;
+
+    section &&
+      elementScrollIntoView(section, {
+        behavior: 'smooth',
+        block: 'start',
+      });
+  }, [location, refs]);
 
   return (
     <main>
       <SelectedModelContextProvider>
-        <Present />
+        <Section ref={presentRef}>
+          <Present />
+        </Section>
         <ModalContextProvider>
-          <Card />
-          <Characteristic />
-          <CrossSell />
+          <Section ref={cardRef}>
+            <Card />
+          </Section>
+          <Section ref={characteristicsRef}>
+            <Characteristic />
+          </Section>
+          <Section ref={crossSellRef}>
+            <CrossSell />
+          </Section>
           <Modal />
         </ModalContextProvider>
       </SelectedModelContextProvider>
