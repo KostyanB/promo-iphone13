@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import env from '../env.json';
+import getPrefix from '../helpers/getPrefix';
 
 const useValidateForm = () => {
   const { validLengths, phoneMask } = env.inputMasks;
@@ -47,11 +48,10 @@ const useValidateForm = () => {
     if (name === 'username') setIsValidName(check);
     if (name === 'address') setIsValidAddress(check);
   };
-  const getPrefix = str => str.split('(')[0].trim();
 
   const validateTel = (value, name) => {
     const maskPrefix = getPrefix(phoneMask);
-    const inputPrefix = getPrefix(value);
+    const inputPrefix = value.slice(0, maskPrefix.length);
 
     let num = value;
     const arr = [maskPrefix, '(', ')', ' ', '-'];
