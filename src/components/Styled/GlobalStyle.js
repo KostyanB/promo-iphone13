@@ -202,8 +202,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     /* Replaced content */
-    svg,
-    img,
+
     embed,
     object,
     iframe {
@@ -218,7 +217,6 @@ export const GlobalStyle = createGlobalStyle`
     textarea {
         -webkit-appearance: none;
             appearance: none;
-        vertical-align: middle;
         color: inherit;
         font: inherit;
         background: transparent;
@@ -375,7 +373,5 @@ export const GlobalStyle = createGlobalStyle`
     */
     #root {
         display: grid;
-
     }
-
 `;

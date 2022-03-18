@@ -3,7 +3,7 @@ import IconStyle from './IconStyle';
 
 export const LogoIcon = ({
   name = 'apple logo',
-  color = 'selectedColor',
+  color = 'currentColor',
   width = 842,
   height = 1e3,
 }) => (
@@ -18,7 +18,7 @@ export const LogoIcon = ({
 
 export const MenuIcon = ({
   name = 'Меню',
-  color = 'selectedColor',
+  color = 'currentColor',
   width = 20,
   height = 17,
 }) => (

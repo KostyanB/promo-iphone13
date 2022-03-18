@@ -27,7 +27,7 @@ const Main = () => {
       present: presentRef,
       card: cardRef,
       characteristics: characteristicsRef,
-      crossSell: crossSellRef,
+      'cross-sell': crossSellRef,
     }),
     [presentRef, cardRef, characteristicsRef, crossSellRef],
   );

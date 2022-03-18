@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavContext } from '../../context';
 import env from '../../env.json';
-import NavItem from './NavItem';
+import NavItems from './NavItems';
 
 const {
   colors: { backgroundColor },
@@ -58,9 +58,7 @@ const NavList = () => {
 
   return (
     <List id='burgerNav' className={isOpenNav ? 'isOpen' : ''}>
-      {env.nav.map((item, i) => (
-        <NavItem key={i} href={item[0]} name={item[1]} />
-      ))}
+      <NavItems />
     </List>
   );
 };
